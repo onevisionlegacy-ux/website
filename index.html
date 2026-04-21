@@ -2,62 +2,167 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Welcome</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Vision Legacy</title>
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background: #0a1f44;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial;
-    flex-direction: column;
-    text-align: center;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1b1b1b 0%, #050505 65%);
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
 }
 
-img {
-    width: 120px;
-    animation: fadeIn 2s ease-in-out;
+.opening {
+    width: min(920px, 92vw);
+    min-height: 70vh;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+    display: grid;
+    place-items: center;
+    padding: 28px 24px 38px;
+    position: relative;
 }
 
-h1 {
-    margin-top: 20px;
-    animation: fadeIn 2.5s ease-in-out;
+.title {
+    position: absolute;
+    top: 22px;
+    left: 24px;
+    margin: 0;
+    letter-spacing: 2px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: #ff4343;
+    text-transform: uppercase;
+}
+
+.burst-wrap {
+    width: min(520px, 82vw);
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.key-core {
+    z-index: 4;
+    width: 160px;
+    filter: drop-shadow(0 0 18px rgba(255, 205, 60, 0.55));
+}
+
+.burst-word {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(0.85rem, 2.4vw, 1.4rem);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
+    transition: transform 1.5s ease, opacity 1.5s ease, color 1.5s ease;
+}
+
+.opening.intro .burst-word {
+    opacity: 1;
+    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+}
+
+.opening.outro .burst-word {
+    opacity: 0.4;
+    color: #ff6b6b;
+    transform: translate(-50%, -50%) scale(0.65);
 }
 
 .buttons {
-    margin-top: 30px;
-    animation: fadeIn 3s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 8px;
 }
 
 .buttons a {
     text-decoration: none;
     padding: 12px 20px;
-    margin: 10px;
-    background: gold;
-    color: black;
-    border-radius: 5px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.btn-primary {
+    background: #ff1f1f;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.45);
+}
+
+.buttons a:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
 }
 </style>
-
 </head>
 <body>
+<main class="opening intro" id="opening">
+    <p class="title">The Key To Success</p>
 
-<img src="logo.png">
-<h1>ONE VISION LEGACY</h1>
+    <section class="burst-wrap">
+        <svg class="key-core" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-label="Golden key">
+            <g fill="none" stroke="#ffcb3c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="62" cy="62" r="34"/>
+                <line x1="92" y1="88" x2="146" y2="142"/>
+                <line x1="134" y1="131" x2="158" y2="107"/>
+                <line x1="146" y1="142" x2="170" y2="118"/>
+            </g>
+            <circle cx="62" cy="62" r="12" fill="#ffcb3c"/>
+        </svg>
 
-<div class="buttons">
-    <a href="homepage.html">Learn More</a>
-    <a href="contactus.html">Contact Us</a>
-</div>
+        <span class="burst-word" style="--x: 185px; --y: 0px;">Vision</span>
+        <span class="burst-word" style="--x: 112px; --y: 112px;">Legacy</span>
+        <span class="burst-word" style="--x: -16px; --y: 170px;">Growth</span>
+        <span class="burst-word" style="--x: -132px; --y: 88px;">Impact</span>
+        <span class="burst-word" style="--x: -165px; --y: -60px;">Trust</span>
+        <span class="burst-word" style="--x: -30px; --y: -170px;">Future</span>
+        <span class="burst-word" style="--x: 132px; --y: -132px;">Success</span>
+    </section>
 
+    <nav class="buttons">
+        <a class="btn-primary" href="homepage.html">Learn More</a>
+        <a class="btn-secondary" href="contactus.html">Contact Us</a>
+    </nav>
+</main>
+
+<script>
+const opening = document.getElementById("opening");
+
+function runBurstLoop() {
+    opening.classList.remove("outro");
+    opening.classList.add("intro");
+
+    setTimeout(() => {
+        opening.classList.remove("intro");
+        opening.classList.add("outro");
+    }, 2500);
+}
+
+runBurstLoop();
+setInterval(runBurstLoop, 5000);
+</script>
 </body>
 </html>
