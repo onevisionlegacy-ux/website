@@ -1,14 +1,52 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body {
+    background-color: #000;
+    color: white;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
     position: fixed;
-    width: 10%;
+    width: 100%;
     top: 0;
     z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 60px;
+    background-color: #071c2c;
+}
+
+/* LOGO */
+.logo img {
+    height: 40px;
+}
+
+/* MENU */
+.menu {
+    display: flex;
 }
 
 .menu a {
     position: relative;
+    margin-left: 30px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
+/* HOVER LINE EFFECT */
 .menu a::after {
     content: "";
     position: absolute;
@@ -20,9 +58,72 @@
     transition: 0.3s;
 }
 
+.menu a:hover {
+    color: #fff;
+}
+
 .menu a:hover::after {
     width: 100%;
 }
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 60px; /* top extra sebab navbar fixed */
+    background: linear-gradient(to right, #071c2c 60%, red 40%);
+}
+
+/* HERO TEXT */
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h4 {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    line-height: 1.2;
+}
+
+/* BUTTON */
+.buttons {
+    margin-top: 20px;
+}
+
+.btn-red {
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.btn-red:hover {
+    background: darkred;
+}
+
+.btn-outline {
+    color: white;
+    text-decoration: none;
+}
+
+/* ================= SERVICES ================= */
+.section {
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 30px;
+}
+
+/* clickable title */
 .section h2 a {
     text-decoration: none;
     color: white;
@@ -30,4 +131,25 @@
 
 .section h2 a:hover {
     color: red;
+}
+
+/* CARDS */
+.services {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT CARD */
+.card:hover {
+    transform: scale(1.05);
 }
