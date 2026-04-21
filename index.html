@@ -13,7 +13,7 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #1b1b1b 0%, #050505 65%);
+    background: radial-gradient(circle at top, #212121 0%, #060606 70%);
     color: #ffffff;
     display: grid;
     place-items: center;
@@ -21,127 +21,193 @@ body {
 }
 
 .opening {
-    width: min(920px, 92vw);
-    min-height: 70vh;
+    width: min(980px, 93vw);
+    min-height: 72vh;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 22px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-    display: grid;
-    place-items: center;
-    padding: 28px 24px 38px;
+    padding: 28px 30px 36px;
     position: relative;
+    overflow: hidden;
 }
 
-.title {
+.stage {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr minmax(240px, 340px);
+    align-items: center;
+    gap: 10px;
+}
+
+.text-zone {
+    position: relative;
+    min-height: 350px;
+}
+
+.line {
     position: absolute;
-    top: 22px;
-    left: 24px;
+    left: 100%;
+    top: 50%;
+    transform: translate(-40px, -50%);
+    width: max-content;
+    max-width: min(100%, 600px);
     margin: 0;
-    letter-spacing: 2px;
-    font-size: clamp(0.8rem, 2vw, 1rem);
-    color: #ff4343;
+    opacity: 0;
+    white-space: nowrap;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+    transition: transform 1.25s ease, opacity 1.25s ease;
 }
 
-.burst-wrap {
-    width: min(520px, 82vw);
-    aspect-ratio: 1 / 1;
+.line.one {
+    top: 30%;
+    font-size: clamp(1rem, 2.2vw, 1.45rem);
+}
+
+.line.two {
+    top: 47%;
+    font-size: clamp(1.8rem, 5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.line.three {
+    top: 64%;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.opening.intro .line {
+    opacity: 1;
+}
+
+.opening.intro .line.one {
+    transform: translate(-520px, -50%);
+}
+
+.opening.intro .line.two {
+    transform: translate(-470px, -50%);
+}
+
+.opening.intro .line.three {
+    transform: translate(-460px, -50%);
+}
+
+.opening.outro .line {
+    transform: translate(-40px, -50%);
+    opacity: 0;
+}
+
+.key-zone {
+    position: relative;
+    z-index: 3;
     display: grid;
     place-items: center;
-    position: relative;
 }
 
 .key-core {
-    z-index: 4;
-    width: 160px;
-    filter: drop-shadow(0 0 18px rgba(255, 205, 60, 0.55));
-}
-
-.burst-word {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(0.85rem, 2.4vw, 1.4rem);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    white-space: nowrap;
-    color: #ffffff;
-    opacity: 0;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
-    transition: transform 1.5s ease, opacity 1.5s ease, color 1.5s ease;
-}
-
-.opening.intro .burst-word {
-    opacity: 1;
-    transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
-}
-
-.opening.outro .burst-word {
-    opacity: 0.4;
-    color: #ff6b6b;
-    transform: translate(-50%, -50%) scale(0.65);
+    width: min(90%, 300px);
+    filter: drop-shadow(0 0 24px rgba(255, 207, 72, 0.6));
 }
 
 .buttons {
-    display: flex;
+    position: absolute;
+    left: 46px;
+    bottom: 34px;
+    display: none;
     flex-wrap: wrap;
-    gap: 14px;
-    justify-content: center;
-    margin-top: 8px;
+    gap: 12px;
+}
+
+.opening.show-buttons .buttons {
+    display: flex;
+    animation: fadeUp 0.45s ease-out both;
 }
 
 .buttons a {
     text-decoration: none;
-    padding: 12px 20px;
+    padding: 12px 21px;
     border-radius: 999px;
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.28);
     font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+    letter-spacing: 0.4px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn-primary {
-    background: #ff1f1f;
+    background: #f11515;
     color: #ffffff;
+    border-color: transparent;
 }
 
 .btn-secondary {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.02);
     color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.45);
 }
 
 .buttons a:hover {
     transform: translateY(-2px);
-    opacity: 0.92;
+    opacity: 0.94;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .stage {
+        grid-template-columns: 1fr;
+    }
+
+    .key-zone {
+        order: -1;
+        margin-top: 16px;
+    }
+
+    .text-zone {
+        min-height: 250px;
+    }
+
+    .opening.intro .line.one {
+        transform: translate(-220px, -50%);
+    }
+
+    .opening.intro .line.two {
+        transform: translate(-210px, -50%);
+    }
+
+    .opening.intro .line.three {
+        transform: translate(-205px, -50%);
+    }
+
+    .buttons {
+        left: 30px;
+    }
 }
 </style>
 </head>
 <body>
-<main class="opening intro" id="opening">
-    <p class="title">The Key To Success</p>
-
-    <section class="burst-wrap">
-        <svg class="key-core" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-label="Golden key">
-            <g fill="none" stroke="#ffcb3c" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="62" cy="62" r="34"/>
-                <line x1="92" y1="88" x2="146" y2="142"/>
-                <line x1="134" y1="131" x2="158" y2="107"/>
-                <line x1="146" y1="142" x2="170" y2="118"/>
-            </g>
-            <circle cx="62" cy="62" r="12" fill="#ffcb3c"/>
-        </svg>
-
-        <span class="burst-word" style="--x: 185px; --y: 0px;">Vision</span>
-        <span class="burst-word" style="--x: 112px; --y: 112px;">Legacy</span>
-        <span class="burst-word" style="--x: -16px; --y: 170px;">Growth</span>
-        <span class="burst-word" style="--x: -132px; --y: 88px;">Impact</span>
-        <span class="burst-word" style="--x: -165px; --y: -60px;">Trust</span>
-        <span class="burst-word" style="--x: -30px; --y: -170px;">Future</span>
-        <span class="burst-word" style="--x: 132px; --y: -132px;">Success</span>
+<main class="opening" id="opening">
+    <section class="stage">
+        <div class="text-zone">
+            <p class="line one">One Vision Legacy is....</p>
+            <p class="line two">The Key,</p>
+            <p class="line three">to sucess</p>
+        </div>
+        <div class="key-zone">
+            <img class="key-core" src="key.png" alt="Key image">
+        </div>
     </section>
-
     <nav class="buttons">
         <a class="btn-primary" href="homepage.html">Learn More</a>
         <a class="btn-secondary" href="contactus.html">Contact Us</a>
@@ -150,19 +216,35 @@ body {
 
 <script>
 const opening = document.getElementById("opening");
+const buttons = Array.from(document.querySelectorAll(".buttons a"));
+let isLeaving = false;
 
-function runBurstLoop() {
-    opening.classList.remove("outro");
+function showIntro() {
     opening.classList.add("intro");
-
     setTimeout(() => {
-        opening.classList.remove("intro");
-        opening.classList.add("outro");
-    }, 2500);
+        opening.classList.add("show-buttons");
+    }, 1350);
 }
 
-runBurstLoop();
-setInterval(runBurstLoop, 5000);
+function playOutroAndGo(targetHref) {
+    if (isLeaving) return;
+    isLeaving = true;
+    opening.classList.remove("intro");
+    opening.classList.add("outro");
+    opening.classList.remove("show-buttons");
+    setTimeout(() => {
+        window.location.href = targetHref;
+    }, 1000);
+}
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        playOutroAndGo(button.getAttribute("href"));
+    });
+});
+
+requestAnimationFrame(showIntro);
 </script>
 </body>
 </html>
