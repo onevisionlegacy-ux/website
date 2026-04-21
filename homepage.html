@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>One Vision Legacy</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#000;color:#fff}
@@ -51,9 +52,34 @@ body{font-family:'Poppins',sans-serif;background:#000;color:#fff}
   color:#000;
   padding:20px;
   border-radius:10px;
-  width:250px;
+  width:290px;
+  min-height:330px;
   font-size:13px;
   flex-shrink:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.testimonial .quote{
+  font-size:13px;
+  line-height:1.6;
+}
+.testimonial .meta{
+  margin-top:auto;
+  font-size:12px;
+  color:#444;
+  line-height:1.4;
+}
+.testimonial .person{
+  font-weight:700;
+  color:#000;
+}
+.testimonial .proof{
+  width:100%;
+  height:120px;
+  border-radius:8px;
+  object-fit:cover;
+  border:1px solid #ddd;
 }
 @keyframes testimonialScroll{
   from{transform:translateX(0)}
@@ -61,7 +87,70 @@ body{font-family:'Poppins',sans-serif;background:#000;color:#fff}
 }
 
 /* FOOTER */
-.footer{text-align:center;padding:30px;background:#000;margin-top:40px}
+.footer{
+  margin-top:40px;
+  padding:40px 24px;
+  background:#050505;
+  border-top:1px solid rgba(255,255,255,0.12);
+}
+.footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.footer-brand img{
+  width:170px;
+  height:auto;
+  display:block;
+}
+.footer-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.join-btn{
+  text-decoration:none;
+  background:#ff1a1a;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:600;
+  border:1px solid transparent;
+  transition:opacity .2s ease,transform .2s ease;
+}
+.join-btn:hover{
+  opacity:.92;
+  transform:translateY(-2px);
+}
+.social-link{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,0.28);
+  background:rgba(255,255,255,0.03);
+  transition:background .2s ease,transform .2s ease,border-color .2s ease;
+}
+.social-link:hover{
+  transform:translateY(-2px);
+  border-color:#ff1a1a;
+  background:rgba(255,26,26,0.15);
+}
+.footer-note{
+  width:100%;
+  text-align:center;
+  margin-top:8px;
+  color:#ccc;
+  font-size:13px;
+}
 
 </style>
 </head>
@@ -116,19 +205,68 @@ body{font-family:'Poppins',sans-serif;background:#000;color:#fff}
   <h2>TESTIMONIALS</h2>
   <div class="testimonials-wrap">
     <div class="testimonials-track">
-      <div class="testimonial">"This platform changed my life and career direction."</div>
-      <div class="testimonial">"Amazing team and strong support system."</div>
-      <div class="testimonial">"Best decision I’ve ever made joining this."</div>
-      <div class="testimonial">"This platform changed my life and career direction."</div>
-      <div class="testimonial">"Amazing team and strong support system."</div>
-      <div class="testimonial">"Best decision I’ve ever made joining this."</div>
+      <article class="testimonial">
+        <p class="quote">"This platform changed my life and career direction."</p>
+        <img class="proof" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=600" alt="Proof image from Sarah's milestone">
+        <p class="meta"><span class="person">Says by:</span> Sarah Lim<br><span class="person">Claimed on:</span> 12 Jan 2026</p>
+      </article>
+      <article class="testimonial">
+        <p class="quote">"Amazing team and strong support system."</p>
+        <img class="proof" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600" alt="Proof image from Daniel's achievement">
+        <p class="meta"><span class="person">Says by:</span> Daniel Wong<br><span class="person">Claimed on:</span> 03 Feb 2026</p>
+      </article>
+      <article class="testimonial">
+        <p class="quote">"Best decision I’ve ever made joining this."</p>
+        <img class="proof" src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=600" alt="Proof image from Aina's success story">
+        <p class="meta"><span class="person">Says by:</span> Aina Rahman<br><span class="person">Claimed on:</span> 19 Mar 2026</p>
+      </article>
+      <article class="testimonial">
+        <p class="quote">"This platform changed my life and career direction."</p>
+        <img class="proof" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=600" alt="Proof image from Sarah's milestone">
+        <p class="meta"><span class="person">Says by:</span> Sarah Lim<br><span class="person">Claimed on:</span> 12 Jan 2026</p>
+      </article>
+      <article class="testimonial">
+        <p class="quote">"Amazing team and strong support system."</p>
+        <img class="proof" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600" alt="Proof image from Daniel's achievement">
+        <p class="meta"><span class="person">Says by:</span> Daniel Wong<br><span class="person">Claimed on:</span> 03 Feb 2026</p>
+      </article>
+      <article class="testimonial">
+        <p class="quote">"Best decision I’ve ever made joining this."</p>
+        <img class="proof" src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=600" alt="Proof image from Aina's success story">
+        <p class="meta"><span class="person">Says by:</span> Aina Rahman<br><span class="person">Claimed on:</span> 19 Mar 2026</p>
+      </article>
     </div>
   </div>
 </div>
 
-<div class="footer">
-  <p>Powered by One Vision Legacy</p>
-</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
+    </div>
+
+    <div class="footer-actions">
+      <a class="join-btn" href="career.html">Join Us</a>
+      <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a class="social-link" href="mailto:info@onevisionlegacy.com" aria-label="Gmail">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+      <a class="social-link" href="https://maps.google.com/?q=One+Vision+Legacy" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
+        <i class="fa-solid fa-location-dot"></i>
+      </a>
+      <a class="social-link" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+    </div>
+
+    <p class="footer-note">Powered by One Vision Legacy</p>
+  </div>
+</footer>
 
 </body>
 </html>
