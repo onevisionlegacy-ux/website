@@ -13,238 +13,239 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #212121 0%, #060606 70%);
+    background: #050505;
     color: #ffffff;
-    display: grid;
-    place-items: center;
     overflow: hidden;
 }
 
-.opening {
-    width: min(980px, 93vw);
-    min-height: 72vh;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 22px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-    padding: 28px 30px 36px;
-    position: relative;
-    overflow: hidden;
+.video-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #000000;
+    opacity: 1;
+    transition: opacity 2s ease;
 }
 
-.stage {
+.video-intro video {
+    width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr minmax(240px, 340px);
-    align-items: center;
-    gap: 10px;
+    object-fit: cover;
+    display: block;
 }
 
-.text-zone {
-    position: relative;
-    min-height: 350px;
-}
-
-.line {
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translate(-40px, -50%);
-    width: max-content;
-    max-width: min(100%, 600px);
-    margin: 0;
+.video-intro.hidden {
     opacity: 0;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
-    transition: transform 1.25s ease, opacity 1.25s ease;
+    pointer-events: none;
 }
 
-.line.one {
-    top: 30%;
-    font-size: clamp(1rem, 2.2vw, 1.45rem);
+.opening-page {
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 2.2s ease;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at top, #1f1f1f 0%, #050505 70%);
 }
 
-.line.two {
-    top: 47%;
-    font-size: clamp(1.8rem, 5vw, 3.6rem);
-    font-weight: 800;
-    letter-spacing: 3px;
-}
-
-.line.three {
-    top: 64%;
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 800;
-    letter-spacing: 2.5px;
-}
-
-.opening.intro .line {
+.opening-page.show {
     opacity: 1;
 }
 
-.opening.intro .line.one {
-    transform: translate(-520px, -50%);
+.nav {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
-.opening.intro .line.two {
-    transform: translate(-470px, -50%);
+.brand {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.opening.intro .line.three {
-    transform: translate(-460px, -50%);
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
 }
 
-.opening.outro .line {
-    transform: translate(-40px, -50%);
-    opacity: 0;
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.9;
 }
 
-.key-zone {
-    position: relative;
-    z-index: 3;
+.navbar {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.hero {
+    width: min(1100px, 92vw);
+    margin: auto;
+    padding: 20px 0 60px;
     display: grid;
-    place-items: center;
+    grid-template-columns: 1fr minmax(220px, 420px);
+    gap: 30px;
+    align-items: center;
 }
 
-.key-core {
-    width: min(90%, 300px);
-    filter: drop-shadow(0 0 24px rgba(255, 207, 72, 0.6));
+.hero-left p {
+    margin: 0 0 10px;
+    letter-spacing: 1px;
 }
 
-.buttons {
-    position: absolute;
-    left: 46px;
-    bottom: 34px;
-    display: none;
+.line-one {
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    color: #f11515;
+}
+
+.line-two {
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    color: #ffffff;
+}
+
+.line-three {
+    font-size: clamp(1.7rem, 4vw, 3rem);
+    color: #ffffff;
+}
+
+.line-two strong,
+.line-three strong {
+    font-weight: 800;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-right img {
+    width: min(100%, 380px);
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.actions {
+    margin-top: 30px;
+    display: flex;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-.opening.show-buttons .buttons {
-    display: flex;
-    animation: fadeUp 0.45s ease-out both;
-}
-
-.buttons a {
+.actions a {
     text-decoration: none;
-    padding: 12px 21px;
+    padding: 12px 22px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
     font-weight: 700;
-    letter-spacing: 0.4px;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn-primary {
+.btn-learn {
     background: #f11515;
     color: #ffffff;
-    border-color: transparent;
 }
 
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.02);
+.btn-join {
     color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: rgba(255, 255, 255, 0.04);
 }
 
-.buttons a:hover {
+.actions a:hover {
     transform: translateY(-2px);
-    opacity: 0.94;
+    opacity: 0.92;
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-@media (max-width: 900px) {
-    .stage {
+    .hero {
         grid-template-columns: 1fr;
-    }
-
-    .key-zone {
-        order: -1;
-        margin-top: 16px;
-    }
-
-    .text-zone {
-        min-height: 250px;
-    }
-
-    .opening.intro .line.one {
-        transform: translate(-220px, -50%);
-    }
-
-    .opening.intro .line.two {
-        transform: translate(-210px, -50%);
-    }
-
-    .opening.intro .line.three {
-        transform: translate(-205px, -50%);
-    }
-
-    .buttons {
-        left: 30px;
     }
 }
 </style>
 </head>
 <body>
-<main class="opening" id="opening">
-    <section class="stage">
-        <div class="text-zone">
-            <p class="line one">One Vision Legacy is....</p>
-            <p class="line two">The Key,</p>
-            <p class="line three">to sucess</p>
+<div class="video-intro" id="videoIntro">
+    <video id="introVideo" autoplay muted playsinline>
+        <source src="intro 3.mpv" type="video/mp4">
+        Your browser does not support this intro video.
+    </video>
+</div>
+
+<main class="opening-page" id="openingPage">
+<!-- NAVIGATION -->
+<div class="navbar">
+    <div class="logo">
+        <a href="homepage.html">
+            <img src="logo.png" alt="One Vision Legacy">
+        </a>
+    </div>
+
+    <div class="menu">
+        <a href="aboutus.html">Team</a>
+        <a href="services.html">Services</a>
+        <a href="career.html">Career</a>
+        <a href="news.html">News</a>
+        <a href="contactus.html">Contact Us</a>
+    </div>
+</div>
+
+    <section class="hero">
+        <div class="hero-left">
+            <p class="line-one">One Vision Legacy is...</p>
+            <p class="line-two">THE <strong>KEY</strong></p>
+            <p class="line-three">TO <strong>SUCCESS</strong></p>
+
+            <div class="actions">
+                <a class="btn-learn" href="homepage.html">Learn More</a>
+                <a class="btn-join" href="contactus.html">Join Us</a>
+            </div>
         </div>
-        <div class="key-zone">
-            <img class="key-core" src="key.png" alt="Key image">
+        <div class="hero-right">
+            <img src="introphoto.png" alt="Intro image">
         </div>
     </section>
-    <nav class="buttons">
-        <a class="btn-primary" href="homepage.html">Learn More</a>
-        <a class="btn-secondary" href="contactus.html">Contact Us</a>
-    </nav>
 </main>
 
 <script>
-const opening = document.getElementById("opening");
-const buttons = Array.from(document.querySelectorAll(".buttons a"));
-let isLeaving = false;
+const introWrap = document.getElementById("videoIntro");
+const introVideo = document.getElementById("introVideo");
+const openingPage = document.getElementById("openingPage");
 
-function showIntro() {
-    opening.classList.add("intro");
-    setTimeout(() => {
-        opening.classList.add("show-buttons");
-    }, 1350);
+function showOpeningPage() {
+    if (introWrap.classList.contains("hidden")) return;
+    introWrap.classList.add("hidden");
+    openingPage.classList.add("show");
 }
 
-function playOutroAndGo(targetHref) {
-    if (isLeaving) return;
-    isLeaving = true;
-    opening.classList.remove("intro");
-    opening.classList.add("outro");
-    opening.classList.remove("show-buttons");
-    setTimeout(() => {
-        window.location.href = targetHref;
-    }, 1000);
-}
+introVideo.addEventListener("ended", showOpeningPage);
 
-buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        playOutroAndGo(button.getAttribute("href"));
-    });
-});
-
-requestAnimationFrame(showIntro);
+// Fallback if the video cannot autoplay or load properly.
+setTimeout(showOpeningPage, 7000);
 </script>
 </body>
 </html>
