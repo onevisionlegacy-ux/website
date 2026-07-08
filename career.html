@@ -59,7 +59,7 @@
 }
 
 .section h2{
-    font-size:20px;
+    font-size:28px;
     margin-bottom:25px;
 }
 
@@ -276,8 +276,7 @@ input {
 
 /* BUTTON */
 button{
-    width:200%;
-    max-width: 30%;
+    width:30%;
     padding: 10px;
     border-radius:12px;
     border:none;
@@ -287,8 +286,9 @@ button{
     letter-spacing:0.5px;
     cursor:pointer;
     transition:all 0.3s ease;
-    margin:25px auto 0; /* untuk centre */
+
     display: block;
+    margin: 20px auto; /* ⭐ ini center */
 }
 
 /* hover button */
@@ -446,16 +446,6 @@ button:hover{
 
 /* FORM hidden */
 .form-container {
-    max-width: 700px;      /* Lebar maksimum */
-    width: 90%;            /* Responsive */
-    margin: 40px auto;     /* Center */
-    padding: 30px;
-
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -465,21 +455,19 @@ button:hover{
 .form-container.show {
     max-height: 2000px;
     opacity: 1;
-    padding: 30px;
-
 }
 
 .form-group{
     margin-bottom:18px;
-    text-align:left;
 }
 
 .form-group label{
     display:block;
     font-size:13px;
     margin-bottom:6px;
-    color:#ccc;
+    text-align:left;
     font-weight:500;
+    color:#ddd;
 }
 
 /*what you'll gain*/
@@ -603,38 +591,6 @@ select{
     text-align:center;
 }
 
-.resume-container{
-    max-width:700px;
-    width:90%;
-    margin:40px auto;
-    padding:30px;
-
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-
-    display:none;
-}
-
-.resume-container h3{
-    text-align:center;
-    margin-bottom:25px;
-    font-size:28px;
-    color:#fff;
-}
-
-.resume-container p{
-    text-align:center;
-    color:#aaa;
-    margin-bottom:25px;
-}
-
-#applyBtn {
-    margin-top: 70px;   /* jarakkan dari steps */
-    display: block;     /* bagi dia duduk sendiri satu line */
-}
-
     </style>
 </head>
 <body>
@@ -650,7 +606,7 @@ select{
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html"><img src="logo.png" alt="One Vision Legacy"></a>
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy"></a>
             </div>
             <div class="menu">
                 <a href="aboutus.html">About Us</a>
@@ -797,69 +753,59 @@ select{
 <button id="applyBtn">Apply</button>
 
 <div id="formContainer" class="form-container">
+<form id="contactForm">
 
-<p class="form-info">
-    Please complete the information below.
-</p>
-
-<!-- STEP 1: DETAILS -->
-<form id="googleForm">
-
-  <div class="form-group">
-    <label>Full Name</label>
-    <input type="text" name="entry.665060330" required>
-  </div>
-
-  <div class="form-group">
-    <label>IC Number</label>
-    <input type="text" name="entry.128475942" required>
-  </div>
-
-  <div class="form-group">
-    <label>Gender</label>
-    <select name="entry.1699749903" required>
-      <option value="">Select Gender</option>
-      <option value="Female">Female</option>
-      <option value="Male">Male</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Phone Number</label>
-    <input type="text" name="entry.687762976" required>
-  </div>
-
-  <div class="form-group">
-    <label>Email</label>
-    <input type="email" name="entry.1430616373" required>
-  </div>
-
-  <div class="form-group">
-    <label>Address</label>
-    <textarea name="entry.1107318861" required></textarea>
-  </div>
-
-  <div class="form-group">
-    <label>Reason for Applying</label>
-    <textarea name="entry.1042579085" required></textarea>
-  </div>
-
-  <button type="submit">Next</button>
-
-</form>
+<div class="form-info">
+    Please complete all fields before submitting.
 </div>
 
-<!-- STEP 2: RESUME -->
-<div id="resumeSection" class="resume-container">
+<div class="form-group">
+    <label>Full Name</label>
+    <input type="text" name="name" required>
+</div>
 
+<div class="form-group">
+    <label>IC Number</label>
+    <input type="text" name="ic" required>
+</div>
 
-    <p>Please upload your latest resume in PDF, DOC or DOCX format.</p>
+<div class="form-group">
+    <label>Gender</label>
+    <select name="gender" required>
+        <option value="">Select</option>
+        <option value="Perempuan">Perempuan</option>
+        <option value="Lelaki">Lelaki</option>
+    </select>
+</div>
 
-    <form id="resumeForm">
-        <input type="file" id="resumeFile" required>
-        <button type="submit">Submit Resume</button>
-    </form>
+<div class="form-group">
+    <label>Phone Number</label>
+    <input type="text" name="phone" required>
+</div>
 
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" required>
+</div>
+
+<div class="form-group">
+    <label>Address</label>
+    <textarea name="address" required></textarea>
+</div>
+
+<div class="form-group">
+    <label>Why do you want this opportunity?</label>
+    <textarea name="reason" required></textarea>
+</div>
+
+<div class="form-group">
+    <label>Resume (Google Drive Link)</label>
+    <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+</div>
+
+<button type="submit">Submit</button>
+
+</form>
 </div>
 
 <div id="popup" class="popup">
@@ -923,59 +869,48 @@ select{
 
 const applyBtn = document.getElementById("applyBtn");
 const formContainer = document.getElementById("formContainer");
-const detailsForm = document.getElementById("detailsForm");
-const resumeForm = document.getElementById("resumeForm");
+const popup = document.getElementById("popup");
+const form = document.getElementById("contactForm");
 
-let savedData = {}; // simpan data sementara
-
-const form = document.getElementById("googleForm");
-
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const formData = new FormData(form);
+    const fileInput = document.querySelector('input[name="resume"]');
+    const file = fileInput.files[0];
 
-    fetch("https://docs.google.com/forms/d/e/1FAIpQLSc7IuYxYgvz12H-u23CfTLN7jokorC1iesay59YaIzXf1KPNw/formResponse", {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-    });
-
-    // show resume form
-    document.getElementById("resumeSection").style.display = "block";
-});
-
-// Resume page
-document.getElementById("resumeForm").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const file = document.getElementById("resumeFile").files[0];
     const reader = new FileReader();
 
-    reader.onload = function() {
+    reader.onload = function () {
 
         const base64 = reader.result.split(",")[1];
 
-        fetch("https://script.google.com/macros/s/AKfycbxDC7A9EYBGXrCuMXE153lserITgBmnGqpoMKImZno-jSke7m60eQShJaFEEaQGZOJi/exec", {
+        const params = new URLSearchParams();
+
+        params.append("name", document.querySelector('input[name="name"]').value);
+        params.append("ic", document.querySelector('input[name="ic"]').value);
+        params.append("gender", document.querySelector('select[name="gender"]').value);
+        params.append("phone", document.querySelector('input[name="phone"]').value);
+        params.append("email", document.querySelector('input[name="email"]').value);
+        params.append("address", document.querySelector('textarea[name="address"]').value);
+        params.append("reason", document.querySelector('textarea[name="reason"]').value);
+        params.append("fileName", file.name);
+        params.append("fileType", file.type);
+        params.append("fileData", base64);
+
+        fetch("https://script.google.com/macros/s/AKfycbyphPBdna76nX7CejlAUKYsA_hDGWWFD21Lho4umiD_zDBmvQo2wa26rfGnsPwIMJj-/exec", {
             method: "POST",
-            body: JSON.stringify({
-                fileName: file.name,
-                mimeType: file.type,
-                fileData: base64
-            })
+            body: params
         })
-        .then(() => {
-
-    popup.classList.add("show");
-
-    setTimeout(() => {
-        popup.classList.remove("show");
-    }, 3000);
-
-})
-.catch(() => {
-    alert("Upload failed");
-});
+        .then(res => res.text())
+        .then(data => {
+            console.log(data);
+            alert("Success!");
+            form.reset();
+        })
+        .catch(err => {
+            console.log(err);
+            alert("Error submit!");
+        });
     };
 
     reader.readAsDataURL(file);
@@ -987,7 +922,13 @@ applyBtn.addEventListener("click", () => {
 });
 
 // popup submit
-const popup = document.getElementById("popup");
+form.addEventListener("submit", function () {
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 3000);
+});
 
 function closePopup(){
     popup.classList.remove("show");

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Vision Legacy</title>
@@ -185,292 +185,8 @@
             .menu { display: none; }
             .hamburger { display: flex; }
         }
-
-        /* ================= NEWS ================= */
-.page-header{
-    padding-top:100px;
-    text-align:center;
-}
-.page-header h1{
-    font-size:4rem;
-    background:linear-gradient(to right,#fff,#4e4343);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-
-/* ================= MAIN SLIDER ================= */
-.main-slider{
-    margin: 0 auto 50px;
-    overflow: hidden;
-    border-radius: 12px;
-    padding: 0; /* BUANG 100px tu */
-}
-
-.main-slider{
-    position: relative;
-}
-
-.main-slider::before,
-.main-slider::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    z-index: 2;
-}
-
-.main-slider::before{
-    left: 0;
-    background: linear-gradient(to right, #000, transparent);
-}
-
-.main-slider::after{
-    right: 0;
-    background: linear-gradient(to left, #000, transparent);
-}
-
-/* ================= AUTO SCROLL ================= */
-.news-container{
-    width:90%;
-    margin:auto;
-}
-
-/* MAIN NEWS */
-.main-news {
-    position: relative;
-    overflow:hidden;
-    margin-bottom:40px;
-    background:#000;
-}
-
-.main-news {
-    max-width: 900px;   /* control size */
-    margin: 0 auto 40px; /* center + spacing */
-    border-radius: 12px;
-    height: clamp(250px, 40vw, 450px);
-}
-
-
-
-.overlay{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:40px;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,0.9),
-        rgba(0,0,0,0.3),
-        transparent
-    );
-    color:white;
-}
-
-.overlay h2{
-    font-size:28px;
-    margin:10px 0;
-}
-
-.overlay p{
-    font-size:14px;
-    opacity:0.8;
-}
-
-@media (max-width: 768px) {
-    .overlay{
-        width: 100%;          /* bagi penuh bila mobile */
-        padding: 20px;        /* kecilkan padding */
-        font-size: 10px;      /* kecilkan text */
-    }
-}
-
-/* TAG */
-.tag{
-    background:#f70303;
-    padding:5px 12px;
-    font-size:12px;
-    border-radius:4px;
-}
-
-/* BUTTON */
-.btn{
-    margin-top:10px;
-    padding:10px 20px;
-    border:none;
-    background:#000;
-    color:#fff;
-    cursor:pointer;
-}
-
-/* TITLE */
-.section-title{
-    margin:30px 0 20px;
-    font-size:22px;
-}
-
-/* GRID */
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-/* CARD */
-.card img{
-    width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:6px;
-}
-
-.card .tag{
-    display:inline-block;
-    margin-top:10px;
-}
-
-.card h4{
-    margin:10px 0;
-    font-size:16px;
-}
-
-.card p{
-    font-size:13px;
-    color:#777;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .news-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:500px){
-    .news-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-
-/* PREVIEW FULLSCREEN */
-.image-preview{
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.92);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* image */
-.image-preview img{
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 10px;
-}
-
-/* CLOSE BUTTON (INI FIX UTAMA) */
-.close-popup{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10001;
-    background: rgba(255, 255, 255, 0);
-    transition: 0.3s ease;
-}
-
-.close-popup i{
-    color: #fff;
-    font-size: 22px;
-    transition: 0.3s ease;
-}
-
-.close-popup:hover{
-    transform: rotate(90deg) scale(1.1);
-    background: rgba(255, 26, 26, 0);
-}
-
-.close-popup:hover i{
-    color: #ff1a1a;
-}
-
-
-.news-popup {
-    display: flex;
-    max-width: 1000px;
-    width: 90%;
-    gap: 30px;
-    align-items: flex-start;
-}
-
-.news-popup img {
-    width: 50%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.news-details {
-    width: 50%;
-}
-
-.news-tag {
-    font-size: 12px;
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.news-details h1 {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-.news-date {
-    font-size: 12px;
-    opacity: 0.6;
-    margin-bottom: 15px;
-}
-
-/* 🔥 INI PALING PENTING UNTUK GAP PARAGRAPH */
-.news-desc p {
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-
-.main-news {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    background: #000;
-}
-
-.slider-track{
-    display:flex;
-    width:100%;
-    height:100%;
-    transition:transform 0.5s ease;
-}
-
-.slider-track img{
-    width:100%;
-    height:100%;
-    flex:0 0 100%;
-    object-fit:cover;
-    display:block;
-}
     </style>
-    </head>
+</head>
 <body>
 
     <!-- NAVIGATION -->
@@ -480,12 +196,11 @@
                 <a href="index.html"><img src="logo.png" alt="One Vision Legacy"></a>
             </div>
             <div class="menu">
-                <a href="aboutus.html">About Us</a>
-            <a href="culture.html">Culture</a>
-            <a href="services.html">Services</a>
-            <a href="career.html">Career</a>
-            <a href="news.html">News</a>
-            <a href="contactus.html">Contact Us</a>
+                <a href="aboutus.html">Team</a>
+                <a href="services.html">Services</a>
+                <a href="career.html">Career</a>
+                <a href="news.html">News</a>
+                <a href="contactus.html">Contact Us</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -501,103 +216,19 @@
         </div>
     </nav>
 
-    <section class="news">
-
-        <!-- HEADER -->
-<div class="page-header">
-    <h1>News</h1>
-</div>
-
-<section class="news-container">
-
-    <div class="main-news">
-    <div class="slider-track" id="sliderTrack">
-
-        <img src="NEWS/APRIL1.jpg" onclick="openNews(this)">
-        <img src="NEWS/APRIL2.jpg" onclick="openNews(this)">
-        <img src="NEWS/APRIL3.jpg" onclick="openNews(this)">
-
+    <!-- BLANK CONTENT AREA -->
+    <div style="height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 80px;">
+        <h2 style="font-size: 2.5rem; text-align: center; color: #aaa;">
+            Blank Page<br>
+            <span style="font-size: 1.1rem; opacity: 0.7;">Ready for new content</span>
+        </h2>
     </div>
-
-    <div class="overlay">
-        <span class="tag">One Vision Legacy</span>
-        <h2 id="mainTitle">Monthly Winner</h2>
-        <p id="mainDate">1 May 2026 • Poster Published by OVL</p>
-    </div>
-</div>
-
-    <!-- TRENDING -->
-    <h3 class="section-title">Trending News</h3>
-
-    <div class="news-grid">
-
-        <div class="card">
-            <img src="NEWS/APRIL2.jpg">
-            <span class="tag">One Vision Legacy</span>
-            <h4>Educational minister make some changes</h4>
-            <p>Jan 21, 2021</p>
-        </div>
-
-        <div class="card">
-            <img src="images/sport.jpg">
-            <span class="tag">One Vision Legacy</span>
-            <h4>Pakistan hockey team makes history</h4>
-            <p>Feb 1, 2021</p>
-        </div>
-
-        <div class="card">
-            <img src="images/mask.jpg">
-            <span class="tag">Education</span>
-            <h4>Institutions close down again</h4>
-            <p>Jan 11, 2021</p>
-        </div>
-
-        <div class="card">
-            <img src="images/covid.jpg">
-            <span class="tag">Covid</span>
-            <h4>Covid third wave more dangerous</h4>
-            <p>Sep 21, 2021</p>
-        </div>
-
-    </div>
-
-<div class="image-preview" id="preview">
-
-    <div class="close-popup" onclick="closePreview()">
-        ✕
-    </div>
-
-    <div class="news-popup">
-
-        <img id="previewImg">
-
-        <div class="news-details">
-            <span class="news-tag">One Vision Legacy</span>
-            <h1 id="popupTitle">News Title</h1>
-            <p class="news-date">1 May 2026</p>
-
-            <div id="popupDesc" class="news-desc">
-                Description here...
-            </div>
-
-            <a href="culture.html" class="btn">View More Photos</a>
-        </div>
-
-    </div>
-</div>
-
-<div class="card" onclick="openNews(this)">
-    <img src="NEWS/APRIL2.jpg">
-    <span class="tag">One Vision Legacy</span>
-    <h4>Educational minister make some changes</h4>
-    <p>Jan 21, 2021</p>
-</div>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
-                <a href="index.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
             </div>
             <div class="footer-social">
                 <div class="social-group">
@@ -615,46 +246,7 @@
         </div>
     </footer>
 
-<script>
-function openNews(el){
-
-    const preview = document.getElementById("preview");
-    const previewImg = document.getElementById("previewImg");
-    const title = document.getElementById("popupTitle");
-    const desc = document.getElementById("popupDesc");
-
-    let img, text, fullDesc;
-
-    if(el.tagName === "IMG"){
-        img = el.src;
-        title.innerText = "Main News";
-
-        fullDesc = `
-            <p>This is the main highlight news of the month.</p>
-            <p>It showcases achievements, activities and important updates.</p>
-        `;
-    } else {
-        img = el.querySelector("img").src;
-        title.innerText = el.querySelector("h4").innerText;
-
-        fullDesc = `
-            <p>This news highlights an important event or achievement.</p>
-            <p>More details can be explained here just like a real article.</p>
-            <p>You can even add more paragraphs easily.</p>
-        `;
-    }
-
-    preview.style.display = "flex";
-    previewImg.src = img;
-
-    // 🔥 INI PENTING (bukan innerText lagi)
-    desc.innerHTML = fullDesc;
-}
-
-function closePreview(){
-    document.getElementById("preview").style.display = "none";
-}
-
+    <script>
         // Navbar Scroll Effect
         const navbar = document.getElementById("navbar");
         window.addEventListener("scroll", () => {
@@ -679,47 +271,5 @@ function closePreview(){
                 });
             }
         });
-
-        let index = 0;
-
-const track = document.getElementById("sliderTrack");
-const slides = track.children;
-
-const newsData = [
-    {
-        title: "Monthly Winner",
-        date: "1 May 2026 • Poster Published by OVL"
-    },
-    {
-        title: "April Achievement",
-        date: "15 April 2026 • One Vision Legacy Event"
-    },
-    {
-        title: "OVL Special Sharing",
-        date: "20 April 2026 • Community Program"
-    }
-];
-
-const mainTitle = document.getElementById("mainTitle");
-const mainDate = document.getElementById("mainDate");
-
-
-setInterval(() => {
-
-    index++;
-
-    if(index >= slides.length){
-        index = 0;
-    }
-
-    // tukar gambar
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    // tukar caption
-    mainTitle.innerText = newsData[index].title;
-    mainDate.innerText = newsData[index].date;
-
-}, 5000);
-
     </script>
 </body>
