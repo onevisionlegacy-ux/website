@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Vision Legacy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #ff1a1a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+                /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            padding: 18px 0;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 14px 0;
+            box-shadow: 0 10px 30px rgba(255, 142, 142, 0.451);
+        }
+        .nav-container {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+        .menu {
+            display: flex;
+            gap: 24px;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        .menu a:hover {
+            opacity: 1;
+            color: var(--primary-red);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-menu.show {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 16px 5%;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            margin-top: 80px;
+            padding: 60px 24px 40px;
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .footer-brand img {
+            width: 170px;
+            height: auto;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+        }
+        .social-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .join-btn {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .join-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        .social-link {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .social-link:hover {
+            border-color: var(--primary-red);
+            background: rgba(255, 26, 26, 0.15);
+            transform: translateY(-4px);
+            color: var(--primary-red);
+        }
+        .footer-note {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 13.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 868px) {
+            .menu { display: none; }
+            .hamburger { display: flex; }
+        }
+
+.page-header{
+    padding-top:170px;
+    text-align:center;
+}
+.page-header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#fff,#4e4343);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+        /* ================= SERVICES ================= */
+
+.services{
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    padding: 140px 0 60px;
+}
+
+.service-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 120px;
+}
+
+.service-row.reverse{
+    flex-direction: row-reverse;
+}
+
+/* IMAGE */
+.service-image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.service-image img{
+    width: 100%;
+    max-width: 420px;
+    object-fit: cover;
+
+    /* ORGANIC SHAPE */
+    border-radius: 50% 40% 60% 30% / 40% 60% 30% 60%;
+
+    box-shadow: 0 20px 60px rgba(255, 0, 0, 0.15);
+}
+
+/* TEXT */
+.service-text{
+    flex: 1;
+}
+
+.service-text h2{
+    color: var(--primary-red);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.service-text p{
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .service-row,
+    .service-row.reverse{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services{
+        padding-top: 120px;
+    }
+}
+
+/* ====================== */
+
+.briefing-section{
+    width:90%;
+    margin:80px auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:40px;
+    font-weight:700;
+    color:#d62828;
+}
+
+.section-title p{
+    color:#666;
+    margin-top:10px;
+}
+
+.briefing-slider{
+    position:relative;
+}
+
+.briefing-wrapper{
+    overflow:hidden;
+}
+
+.briefing-track{
+    display:flex;
+    transition:.6s ease;
+}
+
+.briefing-card{
+    flex:0 0 calc(100% / 3);
+    padding:10px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+.briefing-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+}
+
+.briefing-overlay{
+    position:absolute;
+    left:10px;
+    right:10px;
+    bottom:10px;
+    border-radius:0 0 18px 18px;
+    padding:20px;
+}
+
+
+/* Button */
+
+.briefing-prev,
+.briefing-next{
+
+    position:absolute;
+    top:45%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:25px;
+    background:white;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    z-index:99;
+}
+
+.briefing-prev{
+    left:-25px;
+}
+
+.briefing-next{
+    right:-25px;
+}
+
+.briefing-prev:hover,
+.briefing-next:hover{
+    background:#d62828;
+    color:white;
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+.briefing-card{
+    flex:0 0 50%;
+}
+
+}
+
+/* Phone */
+
+@media(max-width:600px){
+
+.briefing-card{
+    flex:0 0 100%;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="One Vision Legacy"></a>
+            </div>
+            <div class="menu">
+            <a href="aboutus.html">About Us</a>
+            <a href="culture.html">Culture</a>
+            <a href="services.html">Services</a>
+            <a href="career.html">Career</a>
+            <a href="news.html">News</a>
+            <a href="contactus.html">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="aboutus.html">About Us</a>
+            <a href="culture.html">Culture</a>
+            <a href="services.html">Services</a>
+            <a href="career.html">Career</a>
+            <a href="news.html">News</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+<div class="page-header">
+    <h1>Services</h1>
+</div>
+
+    <!-- SERVICES CONTENT -->
+<section class="services">
+
+    <!-- TAKAFUL -->
+    <div class="service-row">
+        <div class="service-image">
+            <img src="takaful.jpg" alt="Takaful">
+        </div>
+        <div class="service-text">
+            <h2>TAKAFUL</h2>
+            <p>
+                Takaful is an Islamic insurance concept based on mutual cooperation and shared responsibility,
+                providing participants with financial protection aligned with Shariah principles.
+            </p>
+        </div>
+    </div>
+
+    <!-- INVESTMENT -->
+    <div class="service-row reverse">
+        <div class="service-image">
+            <img src="investment.jpg" alt="Investment">
+        </div>
+        <div class="service-text">
+            <h2>INVESTMENT</h2>
+            <p>
+                Our Shariah-compliant investment solutions enable individuals and businesses to grow wealth
+                ethically and sustainably while avoiding prohibited financial elements.
+            </p>
+        </div>
+    </div>
+
+    <!-- ESTATE -->
+    <div class="service-row">
+        <div class="service-image">
+            <img src="ESTATE MANAGEMENT.jpg" alt="Estate">
+        </div>
+        <div class="service-text">
+            <h2>ESTATE MANAGEMENT</h2>
+            <p>
+                Our structured estate management services help families plan, protect, and distribute wealth
+                efficiently according to Islamic principles.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= TAKLIMAT SECTION ================= -->
+<section class="briefing-section">
+
+    <div class="section-title">
+        <h2>Talks & Briefing Sessions</h2>
+        <p>We have conducted talks and awareness programmes across various organisations.</p>
+    </div>
+
+    <div class="briefing-slider">
+
+        <button class="briefing-prev">&#10094;</button>
+
+        <div class="briefing-wrapper">
+
+            <div class="briefing-track">
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/1.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/2.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/3.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/4.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/5.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/6.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/7.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/8.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/9.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="briefing-next">&#10095;</button>
+
+    </div>
+
+</section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
+            </div>
+            <div class="footer-social">
+                <div class="social-group">
+                    <a href="contactus.html" class="join-btn">Join Us</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="mailto:info@onevisionlegacy.com" class="social-link"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="https://maps.google.com/?q=One+Vision+Legacy" target="_blank" class="social-link"><i class="fa-solid fa-location-dot"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-note">Powered by One Vision Legacy © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", () => {
+            navbar.classList.toggle("scrolled", window.scrollY > 80);
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        hamburger.addEventListener("click", () => {
+            mobileMenu.classList.toggle("show");
+            const spans = hamburger.querySelectorAll("span");
+            if (mobileMenu.classList.contains("show")) {
+                spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+                spans[1].style.opacity = "0";
+                spans[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+            } else {
+                spans.forEach(span => { 
+                    span.style.transform = "none"; 
+                    span.style.opacity = "1"; 
+                });
+            }
+        });
+
+        const track = document.querySelector(".briefing-track");
+const cards = document.querySelectorAll(".briefing-card");
+
+const next = document.querySelector(".briefing-next");
+const prev = document.querySelector(".briefing-prev");
+
+let index = 0;
+
+function visibleCards(){
+
+    if(window.innerWidth <=600){
+        return 1;
+    }
+
+    if(window.innerWidth <=992){
+        return 2;
+    }
+
+    return 3;
+
+}
+
+function updateSlider(){
+
+    const cardWidth = cards[0].offsetWidth;
+
+    track.style.transform =
+        `translateX(-${index * cardWidth}px)`;
+
+}
+
+next.onclick = ()=>{
+
+    let max = cards.length - visibleCards();
+
+    if(index < max){
+        index++;
+    }else{
+        index = 0;
+    }
+
+    updateSlider();
+
+}
+
+prev.onclick = ()=>{
+
+    let max = cards.length - visibleCards();
+
+    if(index >0){
+        index--;
+    }else{
+        index = max;
+    }
+
+    updateSlider();
+
+}
+
+window.addEventListener("resize",updateSlider);
+
+updateSlider();
+
+/* Auto Slide */
+
+setInterval(()=>{
+
+    let max = cards.length - visibleCards();
+
+    if(index < max){
+        index++;
+    }else{
+        index = 0;
+    }
+
+    updateSlider();
+
+},3500);
+
+    </script>
+</body>
