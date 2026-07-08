@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Vision Legacy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+/* ==================== NAVBAR ==================== */
+:root {
+    --primary-red: #ff1a1a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            padding: 18px 0;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 14px 0;
+            box-shadow: 0 10px 30px rgba(255, 142, 142, 0.451);
+        }
+        .nav-container {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+        .menu {
+            display: flex;
+            gap: 24px;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        .menu a:hover {
+            opacity: 1;
+            color: var(--primary-red);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-menu.show {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 16px 5%;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+
+/* ==================== CULTURE ==================== */
+.page-header{
+    padding-top:170px;
+    text-align:center;
+}
+.page-header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#fff,#4e4343);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.culture-year{
+    color:#fa2c2c;
+    padding-left:30px;
+    margin:20px 0;
+}
+
+.culture-slider{
+    display:flex;
+    gap:30px;
+    overflow-x:auto;
+    scroll-behavior:auto;
+    gap: 30px;
+    padding:10px 30px;
+    scrollbar-width: none; /* Firefox */
+}
+
+.culture-slider::-webkit-scrollbar{
+    display: none;
+}
+
+.culture-card{
+    min-width:500px;
+    height:300px;
+    position:relative;
+    border-radius:15px;
+    overflow:hidden;
+    cursor:pointer;
+    flex-shrink:0;
+}
+
+.culture-card{
+    transition: all 0.3s ease;
+}
+
+.culture-card:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+.culture-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.culture-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+}
+
+.culture-caption{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    z-index:2;
+}
+
+.culture-location{
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.culture-section{
+    margin-bottom: 150px; 
+}
+
+
+/* Footer */
+.footer {
+            margin-top: 80px;
+            padding: 60px 24px 40px;
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 170px;
+            height: auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .join-btn {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            border-color: var(--primary-red);
+            background: rgba(255, 26, 26, 0.15);
+            transform: translateY(-4px);
+            color: var(--primary-red);
+        }
+
+        .footer-note {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 13.5px;
+        }
+
+        @media (max-width: 868px) {
+            .menu { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 0 30px 70px; }
+            .section { padding: 60px 20px; }
+            .swipe-arrow { width: 48px; height: 48px; font-size: 1.7rem; }
+        }
+
+        
+/* HEADER POPUP */
+.gallery-header{
+    max-width:900px;
+    margin:0 auto 30px auto;
+    text-align:center;
+    padding-top:40px;
+}
+
+.gallery-header h2{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.gallery-header p{
+    color:#aaa;
+    font-size:1rem;
+    line-height:1.6;
+}
+
+/* GRID FLEX (lagi cantik dari column) */
+.gallery-grid{
+    column-count: 3;
+    column-gap: 15px;
+}
+
+@media(max-width: 900px){
+    .gallery-grid{ column-count: 2; }
+}
+
+@media(max-width: 600px){
+    .gallery-grid{ column-count: 1; }
+}
+
+/* CARD IMAGE */
+.gallery-item{
+    break-inside: avoid;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.5s ease;
+}
+
+.gallery-item.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item img{
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.gallery-item img:hover{
+    transform: scale(1.05);
+}
+
+.popup-gallery{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    z-index: 9999;
+
+    /* IMPORTANT */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 60px 20px;
+    
+    scrollbar-width: none; /* Firefox */
+
+}
+
+.popup-gallery.active{
+    display: block;
+}
+
+.close-popup{
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0);
+    transition: 0.3s ease;
+}
+
+.close-popup i{
+    color: #fff;
+    font-size: 22px;
+}
+
+.close-popup:hover{
+    background: rgba(235, 223, 223, 0);
+    transform: rotate(90deg);
+}
+
+.close-popup:hover i{
+    color: #ff1a1a;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy"></a>
+            </div>
+            <div class="menu">
+                <a href="aboutus.html">About</a>
+                <a href="Culture.html">Culture</a>
+                <a href="services.html">Services</a>
+                <a href="career.html">Career</a>
+                <a href="news.html">News</a>
+                <a href="contactus.html">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="aboutus.html">About</a>
+                <a href="Culture.html">Culture</a>
+                <a href="services.html">Services</a>
+                <a href="career.html">Career</a>
+                <a href="news.html">News</a>
+                <a href="contactus.html">Contact Us</a>
+            </div>
+    </nav>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>Our Culture</h1>
+</div>
+
+<!-- ================= SLIDER ================= -->
+<div class="culture-section">
+
+<h2 class="culture-year">2026</h2>
+
+<div class="culture-slider">
+
+<div class="culture-card" data-gallery="KICKOFF">
+    <img src="CULTURE/2026/KICKOFF/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3>Kick Off</h3>
+        <div class="culture-location"> Setia Alam Convention Center  • Jan</div>
+    </div>
+</div>
+
+<div class="culture-card" data-gallery="BADMINTON">
+    <img src="CULTURE/2026/BADMINTON/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3>OVL Badminton Tournament</h3>
+        <div class="culture-location"> Kota Bharu Badminton Center • Jan</div>
+    </div>
+</div>
+
+<div class="culture-card" data-gallery="TAHFIZ">
+    <img src="CULTURE/2026/TAHFIZ/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3> Iftar Bersama Pelajar</h3>
+        <div class="culture-location"> Maahad Tahfiz Al-Quran Al-Uzma • March</div>
+    </div>
+</div>
+
+<div class="culture-card" data-gallery="IFTAR">
+    <img src="CULTURE/2026/IFTAR/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3> OVL Iftar</h3>
+        <div class="culture-location"> OVL Office • March </div>
+    </div>
+</div>
+
+<div class="culture-card" data-gallery="HARIRAYA">
+    <img src="CULTURE/2026/HARI RAYA/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3>Sambutan Hari Raya</h3>
+        <div class="culture-location"> OVL Office • March</div>
+    </div>
+</div>
+
+<div class="culture-card" data-gallery="OVL_SPECIAL_SHARING">
+    <img src="CULTURE/2026/OVL SPECIAL SHARING/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3>OVL SPECIAL SHARING</h3>
+        <div class="culture-location"> OVL Office  • April </div>
+    </div>
+</div>
+
+<div class="culture-card" data-gallery="OVL_SPECIAL_SHARING">
+    <img src="CULTURE/2026/MYCFESA/1.jpg">
+
+    <div class="culture-overlay"></div>
+
+    <div class="culture-caption">
+        <h3>Mid Year Conference & FESA </h3>
+        <div class="culture-location"> Sunway Hotel  • July</div>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!-- ================= 2025 ================= -->
+<div class="culture-section">
+
+<h2 class="culture-year">2025</h2>
+
+<div class="culture-slider">
+
+<div class="culture-card" data-gallery="ECQPC">
+<img src="CULTURE/2025/ECQPC/119.jpg">
+<div class="culture-overlay"></div>
+<div class="culture-caption">
+    <h3>East Cost Quaterly Producer Conference </h3>
+    <div class="culture-location"> The Grand Puteri Hotel • February </div>
+</div>
+</div>
+
+<div class="culture-card" data-gallery="MYCFESA">
+<img src="CULTURE/2025/MYCFESA/7.jpg">
+<div class="culture-overlay"></div>
+<div class="culture-caption">
+    <h3> Mid Year Conference & FESA</h3>
+    <div class="culture-location"> Sunway Hotel • July </div>
+</div>
+</div>
+
+<div class="culture-card" data-gallery="FAMILYDAY">
+<img src="CULTURE/2025/FAMILYDAY/14.jpg">
+<div class="culture-overlay"></div>
+<div class="culture-caption">
+    <h3> OVL Family Day </h3>
+    <div class="culture-location"> Negeri Sembilan • September</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="popup-gallery" id="popupGallery">
+
+    <div class="close-popup" onclick="closeGallery()">
+        <i class="fa fa-times"></i>
+    </div>
+
+    <!-- CONTENT HEADER -->
+    <div class="gallery-header" id="galleryHeader"></div>
+
+    <!-- GRID -->
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+</div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
+            </div>
+            <div class="footer-social">
+                <div class="social-group">
+                    <a href="contactus.html" class="join-btn">Join Us</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="mailto:info@onevisionlegacy.com" class="social-link"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="https://maps.google.com/?q=One+Vision+Legacy" target="_blank" class="social-link"><i class="fa-solid fa-location-dot"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-note">Powered by One Vision Legacy © 2026</p>
+        </div>
+    </footer>
+
+<script>
+
+const sliders = document.querySelectorAll(".culture-slider");
+
+// duplicate content (untuk infinite loop)
+sliders.forEach(slider => {
+    slider.innerHTML += slider.innerHTML;
+});
+
+let activeSliders = new Set();
+
+function autoScroll(){
+
+    activeSliders.forEach(slider => {
+
+        // kalau slider TAK di-hover baru jalan
+        if(!pausedSliders.has(slider)){
+
+            slider.scrollLeft += 0.5;
+
+            if(slider.scrollLeft >= slider.scrollWidth / 2){
+                slider.scrollLeft = 0;
+            }
+
+        }
+
+    });
+
+    requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            activeSliders.add(entry.target);
+        } else {
+            activeSliders.delete(entry.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.5 // 50% nampak baru jalan
+});
+
+sliders.forEach(slider => {
+    observer.observe(slider);
+});
+
+sliders.forEach(slider => {
+
+    slider.addEventListener("mouseenter", () => {
+        pausedSliders.add(slider);
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        pausedSliders.delete(slider);
+    });
+
+});
+const pausedSliders = new Set();
+
+/* GALLERIES 2026*/
+const galleries2026 = {
+KICKOFF:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map(n=>"CULTURE/2026/KICKOFF/"+n+".jpg"),
+BADMINTON:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44].map(n=>"CULTURE/2026/BADMINTON/"+n+".jpg"),
+TAHFIZ:[1,2,3,4,5,6,7,8,9,10,,12,13].map(n=>"CULTURE/2026/TAHFIZ/"+n+".jpg"),
+IFTAR:[1,2,3,4,5,6,7,8,9,10,11].map(n=>"CULTURE/2026/IFTAR/"+n+".jpg"),
+HARIRAYA:[1,2,3,4,5,6].map(n=>"CULTURE/2026/HARI RAYA/"+n+".jpg"),
+OVL_SPECIAL_SHARING:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,31,32,33].map(n=>"CULTURE/2026/OVL SPECIAL SHARING/"+n+".jpg")
+};
+
+/* GALLERIES 2025*/
+const galleries2025 = {
+ECQPC:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182].map(n=>"CULTURE/2025/ECQPC/"+n+".jpg"),
+FAMILYDAY:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99].map(n=>"CULTURE/2025/FAMILYDAY/"+n+".jpg"),
+MYCFESA:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30].map(n=>"CULTURE/2025/MYCFESA/"+n+".jpg"),
+};
+
+const galleries = {
+    ...galleries2026,
+    ...galleries2025
+};
+
+/* CLICK OPEN */
+function closeGallery(){
+document.getElementById("popupGallery").classList.remove("active");
+}
+
+const galleryInfo = {
+
+KICKOFF: {
+    title: "Kick Off Event",
+    desc: "Program pembukaan tahun 2026 yang menghimpunkan semua ahli team untuk kickoff, award ceremony dan alignment vision syarikat."
+},
+
+BADMINTON: {
+    title: "Badminton Tournament",
+    desc: "Aktiviti sukan tahunan untuk mengeratkan hubungan antara team melalui pertandingan badminton yang sihat dan menyeronokkan."
+},
+
+TAHFIZ: {
+    title: "Iftar with Community",
+    desc: "Program bersama komuniti Maahad Tahfiz untuk berbuka puasa dan berkongsi rezeki bersama pelajar."
+},
+
+IFTAR: {
+    title: "Team Iftar Session",
+    desc: "Sesi iftar bersama team OVL untuk mengeratkan silaturahim dan bonding antara ahli organisasi."
+},
+
+HARIRAYA: {
+    title: "Hari Raya Celebration",
+    desc: "Sambutan Hari Raya bersama team OVL dengan suasana meriah dan penuh kekeluargaan."
+},
+
+OVL_SPECIAL_SHARING: {
+    title: "OVL Special Sharing",
+    desc: "Sesi perkongsian ilmu dan motivasi untuk peningkatan diri dan perkembangan profesional team."
+},
+
+ECQPC: {
+    title: "East Coast Quarterly Producer Conference",
+    desc: "Conference bersama producer dan agency untuk perkongsian prestasi serta strategi semasa."
+},
+
+MYCFESA: {
+    title: "Mid Year Conference & FESA",
+    desc: "Program conference pertengahan tahun dan sesi penghargaan pencapaian."
+},
+
+FAMILYDAY: {
+    title: "OVL Family Day",
+    desc: "Aktiviti santai bersama ahli dan keluarga untuk mengeratkan hubungan."
+},
+};
+
+document.querySelectorAll(".culture-card").forEach(card=>{ /*funtion pop up*/
+    card.addEventListener("click", ()=>{
+        openGallery(card.dataset.gallery);
+    });
+});
+
+function openGallery(name){
+
+const popup = document.getElementById("popupGallery");
+const grid = document.getElementById("galleryGrid");
+const header = document.getElementById("galleryHeader");
+
+grid.innerHTML = "";
+
+/* HEADER */
+header.innerHTML = `
+    <h2>${galleryInfo[name].title}</h2>
+    <p>${galleryInfo[name].desc}</p>
+`;
+
+galleries[name].forEach((img,i)=>{
+
+    const div = document.createElement("div");
+    div.classList.add("gallery-item");
+
+    div.innerHTML = `<img src="${img}">`;
+
+    grid.appendChild(div);
+
+    setTimeout(()=>{
+        div.classList.add("show");
+    }, i * 80);
+
+});
+
+popup.classList.add("active");
+}
+// Hamburger Menu
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        hamburger.addEventListener("click", () => {
+            mobileMenu.classList.toggle("show");
+            const spans = hamburger.querySelectorAll("span");
+            if (mobileMenu.classList.contains("show")) {
+                spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+                spans[1].style.opacity = "0";
+                spans[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+            } else {
+                spans.forEach(span => { 
+                    span.style.transform = "none"; 
+                    span.style.opacity = "1"; 
+                });
+            }
+        });
+
+</script>
+
+</body>
+</html>
