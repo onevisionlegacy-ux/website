@@ -1,1 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Vision Legacy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #ff1a1a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+    font-family: Arial, sans-serif;
+    background:#0d0d0d;
+    color:white;
+    margin:0;
+}
+
+
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            padding: 18px 0;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 14px 0;
+            box-shadow: 0 10px 30px rgba(255, 142, 142, 0.451);
+        }
+        .nav-container {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+        .menu {
+            display: flex;
+            gap: 24px;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        .menu a:hover {
+            opacity: 1;
+            color: var(--primary-red);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-menu.show {
+            display: block;
+        }
+        .mobile-menu a {
+            display: block;
+            padding: 16px 5%;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+.page-header{
+    padding-top:170px;
+    text-align:center;
+}
+.page-header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#fff,#4e4343);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    margin-top:1px;
+    color:#fff1f1;
+    font-size:16px;
+}
+
+.contact-wrapper{
+    max-width:600px;
+    margin:80px auto;
+    padding:40px;
+    background:rgba(255,255,255,0.03);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* INPUT */
+input, textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.05);
+    color:white;
+    font-size:14px;
+    transition:all 0.3s ease;
+}
+
+/* placeholder color */
+input::placeholder,
+textarea::placeholder{
+    color:#aaa;
+}
+
+/* focus effect */
+input:focus,
+textarea:focus{
+    border-color: var(--primary-red);
+    box-shadow:0 0 10px rgba(255,26,26,0.3);
+}
+
+input {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    border:none;
+    background:linear-gradient(135deg, #ff1a1a, #ff4d4d);
+    color:white;
+    font-weight:600;
+    letter-spacing:0.5px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+
+/* hover button */
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(255,26,26,0.4);
+}
+
+.popup{
+    display:none; /* control hide/show */
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+/* bila aktif */
+.popup.show{
+    display:flex;
+}
+.popup-box{
+    background:#111;
+    color:#fff;
+    padding:35px 30px;
+    border-radius:16px;
+    text-align:center;
+    width:90%;
+    max-width:380px;
+
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+
+    animation:fadeUp 0.35s ease;
+}
+
+.popup-box h2{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    font-size:14px;
+    color:#bbb;
+}
+
+/* button clean */
+.popup-box button{
+    margin-top:18px;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:var(--primary-red);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(0.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+        /* ==================== FOOTER ==================== */
+        .footer {
+            margin-top: 80px;
+            padding: 60px 24px 40px;
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .footer-brand img {
+            width: 170px;
+            height: auto;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+        }
+        .social-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .join-btn {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .join-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        .social-link {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .social-link:hover {
+            border-color: var(--primary-red);
+            background: rgba(255, 26, 26, 0.15);
+            transform: translateY(-4px);
+            color: var(--primary-red);
+        }
+        .footer-note {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 13.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 868px) {
+            .menu { display: none; }
+            .hamburger { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>Contact us</h1>
+    <p class="subtitle">Go ahead and say just a little more about you. We will reach you soon.</p>
+</div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy"></a>
+            </div>
+            <div class="menu">
+                <a href="aboutus.html">About Us</a>
+                <a href="culture.html">Culture</a>
+                <a href="services.html">Services</a>
+                <a href="career.html">Career</a>
+                <a href="news.html">News</a>
+                <a href="contactus.html">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="aboutus.html">Team</a>
+            <a href="services.html">Services</a>
+            <a href="career.html">Career</a>
+            <a href="news.html">News</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+    </nav>
+
+    
+    <div class="contact-wrapper">
+
+    <!-- FORM -->
+    <form id="contactForm"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSeBA0C7SP_2F8snPqM_ztNdmgBHohboXRUxAUiC1mdIN-KF5A/formResponse"
+    method="POST"
+    target="hidden_iframe">
+
+    <input type="text" name="entry.1103004325" placeholder="Your Name" required>
+
+    <input type="email" name="entry.1206171398" placeholder="Your Email" required>
+
+    <textarea name="entry.474349007" rows="5" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+<!-- HIDDEN IFRAME (NO REDIRECT) -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <div style="font-size:40px; margin-bottom:10px;">✔</div>
+        <h2>Message Sent</h2>
+        <p>We will contact you shortly.</p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
+            </div>
+            <div class="footer-social">
+                <div class="social-group">
+                    <a href="contactus.html" class="join-btn">Join Us</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="mailto:info@onevisionlegacy.com" class="social-link"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="https://maps.google.com/?q=One+Vision+Legacy" target="_blank" class="social-link"><i class="fa-solid fa-location-dot"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-note">Powered by One Vision Legacy © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", () => {
+            navbar.classList.toggle("scrolled", window.scrollY > 80);
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        hamburger.addEventListener("click", () => {
+            mobileMenu.classList.toggle("show");
+            const spans = hamburger.querySelectorAll("span");
+            if (mobileMenu.classList.contains("show")) {
+                spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+                spans[1].style.opacity = "0";
+                spans[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+            } else {
+                spans.forEach(span => { 
+                    span.style.transform = "none"; 
+                    span.style.opacity = "1"; 
+                });
+            }
+        });
+
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function() {
+    setTimeout(() => {
+        document.getElementById("popup").style.display = "flex";
+        form.reset();
+    }, 500); // delay sikit bagi form submit dulu
+});
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+setTimeout(() => {
+    document.getElementById("popup").style.display = "none";
+}, 3000);
+    </script>
+</body>
