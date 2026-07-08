@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Vision Legacy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+    --primary-red: #ff1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    line-height: 1.7;
+}
+
+/* NAVBAR */
+.navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            padding: 18px 0;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.98);
+            padding: 14px 0;
+            box-shadow: 0 10px 30px rgba(255, 142, 142, 0.451);
+            border-radius: 0 0 16px 16px;
+        }
+
+        .nav-container {
+            width: min(1100px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            opacity: 1;
+            color: var(--primary-red);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px 5%;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 85vh;
+    min-height: 620px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active { opacity: 1; }
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 80px 40px 60px;
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6), transparent);
+    text-align: center;
+}
+
+/* ===== Vision & Mission ===== */
+
+.mv-section{
+    max-width:1200px;
+    margin:70px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+}
+
+.mv-card{
+    background:#111;
+    border-left:6px solid var(--primary-red);
+
+    padding:45px;
+    border-radius:18px;
+
+    transition:.35s ease;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.mv-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(255,0,0,.18);
+}
+
+.mv-card h3{
+    color:var(--primary-red);
+    font-size:34px;
+    margin-bottom:20px;
+    letter-spacing:2px;
+    font-weight:700;
+}
+
+.mv-card p{
+    color:#d7d7d7;
+    line-height:1.9;
+    font-size:17px;
+}
+
+/* Tablet */
+@media (max-width:900px){
+
+    .mv-section{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .mv-card{
+        padding:35px;
+    }
+
+    .mv-card h3{
+        font-size:30px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .mv-section{
+        margin:50px auto;
+        padding:0 16px;
+    }
+
+    .mv-card{
+        padding:28px 22px;
+        border-radius:15px;
+    }
+
+    .mv-card h3{
+        font-size:26px;
+        margin-bottom:15px;
+    }
+
+    .mv-card p{
+        font-size:15px;
+        line-height:1.8;
+    }
+
+}
+
+/* TEAM SECTION */
+.team-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title h2 {
+    color: var(--primary-red);
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -12px;
+
+    width: 300px; /* panjangkan garisan */
+    height: 4px;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        white,
+        transparent
+    );
+}
+
+/* ==================== MANAGING DIRECTOR ==================== */
+.director {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.director-card:hover img {
+    transform: scale(1.05);
+}
+
+.director-card {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+}
+
+.director-card img {
+    width: 400px;
+    height: 450px;
+    object-fit: cover;
+    filter: drop-shadow(0 0 0 white) 
+            drop-shadow(0 0 0 white)
+            drop-shadow(0 0 0 white);
+}
+
+/* Text Overlay on Photo - Bottom Right */
+.director-info {
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    z-index: 2;
+}
+
+/* Red Background Block */
+.name-block {
+    background: linear-gradient(to right, 
+        rgba(255, 26, 26, 0.0000000000000000000000000001), 
+        rgba(255, 26, 26, 0.98));
+    padding: 6px 2px 10px 50px;
+    display: inline-block;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 50px;
+    right: -10px;
+    text-align: right;
+    z-index: 2;
+}
+
+/* The Name Text */
+.name-block h3 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin: 0;
+    line-height: 0.7;
+}
+.director-info h3 {
+    font-size: 3.0rem;
+    color: var(--primary-red);
+    font-weight: 700;
+    color: white;
+    right: -10px;
+    text-align: right;
+}
+
+.position {
+    color: rgb(228, 21, 21);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    margin-top: -1px; /* naikkan sikit rapat dengan nama */
+    display: block; /* penting */
+    transform: translateY(-11px); /* naikkan sini */
+}
+
+/* box belakang */
+.red-bg {
+    position: absolute;  /* ikut card */
+    top: 48%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    
+    width: 200px;
+    height: 450px;
+    
+    background: rgba(255, 0, 0, 0.436);
+     border-radius: 120px 120px 0 0; 
+    
+    z-index: -1;
+}
+
+/* MODAL BACKGROUND */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* MODAL BOX */
+.modal-content {
+    background: #11111195;
+    padding: 30px;
+    max-width: 1000px;
+    max-height: 90vh;     /* limit tinggi ikut screen */
+    overflow-y: auto;     /* enable scroll */
+    width: 90%;
+    border-radius: 16px;
+    position: relative;
+    animation: fadeIn 0.4s ease;
+
+    display: flex;              /* PENTING */
+    gap: 30px;                 /* Jarak kiri-kanan */
+    align-items: flex-start;   /* Align atas */
+    text-align: left;    
+}
+
+/* IMAGE */
+.modal-content img {
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0; /* Supaya tak mengecil */
+}
+
+/* TEXT */
+.modal-text h2 {
+    margin-bottom: 5px;
+}
+
+.modal-position {
+    color: var(--primary-red);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.modal-desc {
+    color: #f4ebeb;
+    font-size:14px;
+    line-height: 1.6;
+    margin-bottom: 16px; /* jarak antara paragraph */
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.director-card {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .modal-content img {
+        width: 180px;
+        height: 200px;
+    }
+}
+/* PARTNER CARDS */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 60px auto 0;
+    padding: 0 20px;
+    justify-items: center;
+}
+    
+.partner-card {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+    }
+
+.partner-card img {
+    width: 280px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 20%;
+    transition: transform 0.4s ease;
+    border-radius: 50px;
+    filter: drop-shadow(0 0 0 white) 
+    drop-shadow(0 0 0 white)
+    drop-shadow(0 0 0 white);
+}
+
+.partner-card:hover img {
+    transform: scale(1.05);
+}
+
+.partner-card {
+    cursor: pointer;
+}
+
+/* Text Overlay - Bottom Right */
+.partner-info {
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    z-index: 2;
+}
+
+.partner-name-block {
+    background: linear-gradient(to right, rgba(255, 26, 26, 0.0000000000000000000000000001), 
+    rgba(255, 26, 26, 0.98));
+    padding: 6px 2px 10px 50px;
+    display: inline-block;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 30px;
+    right: -10px;
+    text-align: right;
+    z-index: 2;
+}
+
+.partner-name-block h4 {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin: 0;
+    line-height: 0.7;
+}
+
+.partner-position {
+    color: rgb(228, 21, 21);
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    display: block; /* penting */
+    transform: translateY(-11px); /* naikkan sini */
+}
+
+.red-bg-partner {
+    position: absolute;  /* ikut card */
+    top: 48%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 270px;
+    background: rgba(255, 0, 0, 0.436);
+    border-radius: 120px 120px 0 0; 
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: 1fr; /* 🔥 paksa jadi 1 */
+    }
+}
+
+/* Team Card Design */
+
+.team-card {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.team-card img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center 20%;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 0 0 white) 
+            drop-shadow(0 0 0 white)
+            drop-shadow(0 0 0 white);
+}
+
+.team-card:hover img {
+    transform: scale(1.05);
+}
+/* Text Overlay - Bottom Right */
+
+.team-info {
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    z-index: 2;
+}
+
+.team-name-block {
+    background: linear-gradient(to right, 
+        rgba(255, 26, 26, 0.0000000000000000000000000000000001), 
+        rgba(255, 26, 26, 0.98));
+    padding: 6px 2px 10px 50px;
+    display: inline-block;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 30px;
+    right: -10px;
+    text-align: right;
+    z-index: 2;
+}
+
+.team-name-block h4 {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin: 0;
+    line-height: 0.7;
+}
+
+.team-position {
+    color: rgb(228, 21, 21);
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    display: block; /* penting */
+    transform: translateY(-11px); /* naikkan sini */
+}
+
+/* 4x4 Responsive Grid */
+.team-grid-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Tablet (2 gambar satu row) */
+@media (max-width: 900px) {
+    .team-grid-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile (1 gambar satu row) */
+@media (max-width: 500px) {
+    .team-grid-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* team */
+
+.team-container{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+    margin-top:60px;
+}
+
+.team-sidebar{
+    width:240px;
+    position:sticky;
+    top:100px;
+}
+
+.team-tab{
+    width:100%;
+    background:none;
+    border:none;
+    color:#aaa;
+    text-align:left;
+    padding:12px 15px;
+    cursor:pointer;
+    font-size:15px;
+    border-left:3px solid transparent;
+    transition:0.3s;
+}
+
+.team-tab:hover{
+    color:white;
+    background:rgba(255,255,255,0.05);
+}
+
+.team-tab.active{
+    color:var(--primary-red);
+    border-left:3px solid var(--primary-red);
+    background:rgba(255,26,26,0.08);
+}
+
+.team-content{
+    flex:1;
+}
+
+.team-section-content{
+    display:none;
+}
+
+.team-section-content.active{
+    display:block;
+}
+
+.team-groups{
+    margin-top:100px;
+}
+
+.red-bg-team {
+    position: absolute;  /* ikut card */
+    top: 3%;
+    left: 5%;
+    transform: translate(-50%,);
+    
+    width: 70px;
+    height: 190px;
+    
+    background: rgba(255, 0, 0, 0.436);
+     border-radius: 120px 120px 0 0; 
+    
+    z-index: -1;
+}
+
+.accordion-btn{
+    width:100%;
+    background:none;
+    border:none;
+    border-left:4px solid var(--primary-red);
+    color:white;
+    text-align:left;
+    padding:18px 20px;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top: 20px;
+}
+
+.accordion-btn:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+.accordion-content{
+    display:none;
+    padding:30px 0;
+}
+
+
+/* footer */
+
+        .footer {
+            margin-top: 80px;
+            padding: 60px 24px 40px;
+            background: #050505;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            width: 170px;
+            height: auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .join-btn {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            border-color: var(--primary-red);
+            background: rgba(255, 26, 26, 0.15);
+            transform: translateY(-4px);
+            color: var(--primary-red);
+        }
+
+        .footer-note {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 13.5px;
+        }
+
+        @media (max-width: 868px) {
+            .menu { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 0 30px 70px; }
+            .section { padding: 60px 20px; }
+            .swipe-arrow { width: 48px; height: 48px; font-size: 1.7rem; }
+        }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy"></a>
+        </div>
+        <div class="menu">
+            <a href="aboutus.html">About Us</a>
+            <a href="culture.html">Culture</a>
+            <a href="services.html">Services</a>
+            <a href="career.html">Career</a>
+            <a href="news.html">News</a>
+            <a href="contactus.html">Contact Us</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="aboutus.html">About Us</a>
+            <a href="culture.html">Culture</a>
+            <a href="services.html">Services</a>
+            <a href="career.html">Career</a>
+            <a href="news.html">News</a>
+            <a href="contactus.html">Contact Us</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="slideshow" id="slideshow">
+        <div class="slide active" style="background-image: url('ABOUTUS/aboutus1.jpg');"></div>
+        <div class="slide" style="background-image: url('ABOUTUS/aboutus2.jpg');"></div>
+        <div class="slide" style="background-image: url('ABOUTUS/aboutus3.jpg');"></div>
+        <div class="slide" style="background-image: url('ABOUTUS/aboutus4.jpg');"></div>
+    </div>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>One Vision Legacy</h1>
+            <p>Empowering individuals • Building future leaders • Creating sustainable success</p>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<p class="about-text" style="max-width:920px;margin:0 auto 70px;font-size:1.15rem;color:#ddd;text-align:center;line-height:1.85;">
+    At One Vision Legacy, we are committed to building a brighter future for our community. 
+    We provide strategic financial education, professional guidance, and comprehensive leadership development programs.
+</p>
+
+<section class="mv-section">
+
+    <div class="mv-card">
+        <h3>VISION</h3>
+        <p>
+            To Become a World-Class Islamic Financial Advisory Agency That Builds
+            Legacies, Develops Leaders, and Creates Lasting Impact in Society.
+        </p>
+    </div>
+
+    <div class="mv-card">
+        <h3>MISSION</h3>
+        <p>
+            To educate, guide, and empower communities through continuous financial
+            education, exceptional service, and leadership development rooted in
+            knowledge, integrity, personal growth, and Islamic values, inspiring
+            individuals to become the best version of themselves while creating
+            value for future generations.
+        </p>
+    </div>
+
+</section>
+
+<!-- TEAM SECTION -->
+<div class="team-section">
+    <div class="section-title">
+        <h2>Our Leadership Team</h2>
+    </div>
+    
+    <!-- MANAGING DIRECTOR -->
+    <div class="director">
+
+        <div class="director-card" id= "openDirector">
+
+             <div class="red-bg"></div>
+            
+            <div class="image-wrapper">
+                <img src="MEMBERS/DD NAZRIN.png" alt="Nik Nazrin">
+            </div>
+            <div class="director-info">
+                <div class="name-block">
+                    <h3>NIK NAZRIN</h3>
+                </div>
+                <p class="position">MANAGING DIRECTOR</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIRECTOR POPUP -->
+
+<div id="directorModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+
+        <img src="MEMBERS/DD NAZRIN.png" alt="Nik Nazrin">
+
+        <div class="modal-text">
+            <h2>NIK NAZRIN</h2>
+            <p class="modal-position">Managing Director</p>
+
+
+            <p class="modal-desc">
+                Nik Nazrin Hazran is the Founder and Managing Director of One Vision Legacy (OVL), a dynamic Islamic financial advisory agency driven by a vision to become a world-class financial consulting organization. Through financial education, exceptional service, and leadership development, he is committed to empowering individuals, families, and communities to achieve greater financial confidence and long-term success.
+            </p>
+            <p class="modal-desc">
+Believing that true success extends beyond financial achievement, he has built OVL on the principles of knowledge, integrity, personal growth, and Islamic values. His mission is to develop future leaders, inspire individuals to become the best version of themselves, and build a lasting legacy that creates meaningful impact for generations to come.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- PARTNER MODAL -->
+<div id="partnerModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closePartner">&times;</span>
+
+        <img id="partnerImg" src="" alt="Partner">
+
+        <div class="modal-text">
+            <h2 id="partnerName"></h2>
+            <p class="modal-position" id="partnerPosition"></p>
+            <p class="modal-desc" id="partnerDesc"></p>
+        </div>
+    </div>
+</div>
+
+<!-- PARTNERS SECTION (WITH POPUP) -->
+<div class="partners-grid">
+
+<!-- Partner 1 -->
+<div class="partner-card openPartner"
+     data-name="AHMAD MIQDAD"
+     data-position="Managing Partner"
+     data-img="MEMBERS/AM SYAHMI.png"
+     data-desc=".">
+
+     <div class="red-bg-partner"></div>
+
+    <div class="image-wrapper">
+        <img src="MEMBERS/AM SYAHMI.png" alt="Alif Syahmi">
+        <div class="partner-info">
+            <div class="partner-name-block">
+                <h4>ALIF SYAHMI</h4>
+            </div>
+            <p class="partner-position">MANAGING PARTNER</p>
+        </div>
+    </div>
+</div>
+
+<!-- Partner 2 -->
+<div class="partner-card openPartner"
+     data-name="AHMAD FIRDAUS"
+     data-position="Managing Partner"
+     data-img="MEMBERS/AM FIRDAUS.png"
+     data-desc="I believe that while many individuals focus on savings, investments, and wealth accumulation, one of the most critical aspects of financial planning is often overlooked —risk management. Through my expertise in Takaful solutions, Islamic estate planning, and financial management, I help individuals and families build a strong financial foundation by identifying potential risks that could impact their financial security, family well-being, and legacy. My goal is to provide comprehensive, structured, and Shariah-compliant solutions that empower clients to make informed financial decisions with confidence and clarity for the future.">
+
+    <div class="red-bg-partner"></div>
+
+    <div class="image-wrapper">
+        <img src="MEMBERS/AM FIRDAUS.png" alt="Ahmad Firdaus">
+        <div class="partner-info">
+            <div class="partner-name-block">
+                <h4>AHMAD FIRDAUS</h4>
+            </div>
+            <p class="partner-position">MANAGING PARTNER</p>
+        </div>
+    </div>
+</div>
+
+<!-- Partner 3 -->
+<div class="partner-card openPartner"
+     data-name="EN AM"
+     data-position="Managing Partner"
+     data-img="MEMBERS/EN AM.png"
+     data-desc="Assalamualaikum Warahmatullahi Wabarakatuh. 
+
+Alhamdulillah, segala puji bagi Allah SWT kerana dengan limpah kurnia-Nya, kita masih lagi diberikan peluang untuk terus berkhidmat dan memberi manfaat kepada masyarakat melalui perancangan kewangan yang patuh Syariah. 
+
+Dalam dunia yang sentiasa berubah, perlindungan kewangan, simpanan, pelaburan dan pewarisan harta bukan lagi satu pilihan, tetapi satu keperluan. Justeru, kami komited untuk menjadi rakan strategik yang membantu masyarakat membina masa depan yang lebih terjamin dan penuh keberkatan.
+
+Kewangan yang baik bukan sekadar membawa keselesaan hidup, tetapi juga menjadi satu amanah yang perlu diurus dengan penuh tanggungjawab.
+
+Melalui pendekatan kewangan Islam yang menyeluruh, kita bukan sahaja berusaha mencapai kejayaan dunia, malah turut mengejar keberkatan dan kesejahteraan akhirat.
+
+Saya amat percaya bahawa kejayaan kewangan bukanlah tentang berapa banyak yang kita miliki, tetapi bagaimana kita mengurus dan melindungi apa yang kita ada.
+
+Semoga setiap langkah yang kita ambil hari ini menjadi asas kepada masa depan yang lebih terjamin, setiap usaha yang dilakukan diberkati Allah SWT, dan setiap kejayaan yang dicapai memberi manfaat bukan sahaja kepada diri sendiri, malah kepada keluarga, masyarakat dan ummah secara keseluruhannya. Sekian, terima kasih.">
+
+<div class="red-bg-partner"></div>
+
+    <div class="image-wrapper">
+        <img src="MEMBERS/EN AM.png" alt="Alif Syahmi">
+        <div class="partner-info">
+            <div class="partner-name-block">
+                <h4>AMIR AZIHAN ARIF</h4>
+            </div>
+            <p class="partner-position">MANAGING PARTNER</p>
+        </div>
+    </div>
+</div>
+
+<!-- Partner 4 -->
+<div class="partner-card openPartner"
+     data-name="DD MIQDAD"
+     data-position="Managing Partner"
+     data-img="MEMBERS/DD MIQDAD.png"
+     data-desc="Assalamualaikum Warahmatullahi Wabarakatuh dan salam sejahtera.
+Syukur ke hadrat Allah SWT kerana dengan izin-Nya, kita terus diberikan ruang dan peluang untuk memperkukuhkan kefahaman serta kesedaran terhadap kepentingan pengurusan kewangan Islam yang menyeluruh dalam kehidupan masyarakat hari ini.
+Dalam dunia yang semakin mencabar, pengurusan kewangan bukan lagi sekadar soal pendapatan dan perbelanjaan, tetapi ia melibatkan perancangan yang teratur, perlindungan kewangan, pengurusan hutang, simpanan masa hadapan, pewarisan harta serta persediaan menghadapi risiko kehidupan berpandukan prinsip syariah. Pendekatan kewangan Islam yang komprehensif bukan sahaja membantu membina kestabilan ekonomi individu dan keluarga, malah menjadi asas kepada kehidupan yang lebih tenang, berkat dan sejahtera.
+Sebagai sebuah masyarakat yang mendambakan keseimbangan dunia dan akhirat, kita perlu melihat pengurusan kewangan sebagai satu amanah yang perlu diurus dengan ilmu, disiplin dan hikmah. Kesedaran ini amat penting agar setiap keputusan kewangan yang dibuat mampu memberi manfaat jangka panjang tanpa mengabaikan nilai-nilai Islam.
+Saya berharap usaha dan perkongsian ini dapat memberi inspirasi, membuka minda serta menjadi panduan kepada masyarakat untuk lebih memahami kepentingan merancang kewangan secara bijak dan patuh syariah demi melindungi masa depan diri, keluarga dan generasi akan datang.
+Semoga segala usaha yang dilakukan mendapat keberkatan dan keredaan Allah SWT.
+Sekian, terima kasih.">
+
+<div class="red-bg-partner"></div>
+
+    <div class="image-wrapper">
+        <img src="MEMBERS/DD MIQDAD1.png" alt="Amir Azihan Arif">
+        <div class="partner-info">
+            <div class="partner-name-block">
+                <h4>AHMAD MIQDAD</h4>
+            </div>
+            <p class="partner-position">MANAGING PARTNER</p>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- ==================== OUR TEAM SECTION ==================== -->
+<div class="team-section">
+    <div class="section-title">
+        <h2>Our Members</h2>
+    </div>
+
+ <button class="accordion-btn">
+    Ahmad Firdaus Legacy (AFL)
+</button>
+
+<div class="accordion-content">
+    <div class="team-grid-inner">
+
+        <div class="team-card">
+            
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AFL/AISYAH.png" alt="AISYAH">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AISYAH</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AFL/ALYSHA.png" alt="ALYSHA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ALYSHA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AFL/AINWAHIDDA1.png" alt="AINWAHIDDA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AINWAHIDDA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AFL/ADILA.png" alt="ADILA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ADILA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+            
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AFL/LUQMAN.png" alt="ADILA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>LUQMAN</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<button class="accordion-btn">
+    Alif Syahmi Legacy (ASL)
+</button>
+
+<div class="accordion-content">
+    <div class="team-grid-inner">
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/IZZAT.png" alt="IZZAT">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>IZZAT</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/ILMIRA.png" alt="ILMIRA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ILMIRA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/ALYA.png" alt="ALYA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ALYA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/HASAN.png" alt="HASAN">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>HASAN</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/IKMAL.png" alt="IKMAL">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>IKMAL</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/AKMA.png" alt="AKMA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AKMA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/ASL/AMIERAH.png" alt="AMIERAH">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AMIERAH</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<button class="accordion-btn">
+    Ahmad Miqdad Group (AMG)
+</button>
+
+<div class="accordion-content">
+    <div class="team-grid-inner">
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/ATIQ.png" alt="ATIQ">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ATIQ</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/FAKHRUL.png" alt="FAKHRUL">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>FAKHRUL</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/ZULAIKHA.png" alt="ZULAIKHA">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ZULAIKHA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/NUZUL.png" alt="NUZUL">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>NUZUL</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/KHALEED.png" alt="KHALEED">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>KHALEED</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/SYAHMI.png" alt="SYAHMI">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>SYAHMI</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/HAZIQ.png" alt="HAZIQ">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>HAZIQ</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/AIN.png" alt="AIN">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AIN</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AMG/AFIFI.png" alt="AFIFI">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AFIFI</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<button class="accordion-btn">
+    AM Legacy (AML)
+</button>
+
+<div class="accordion-content">
+    <div class="team-grid-inner">
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AML/AMIRAH.png" alt="IZZAT">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>AMIRAH</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AML/NAJIHAH.png" alt="IZZAT">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>NAJIHAH</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+
+            <div class="red-bg-team"></div>
+
+            <img src="MEMBERS/AML/ALEEYA.png" alt="IZZAT">
+            <div class="team-info">
+                <div class="team-name-block">
+                    <h4>ALEEYA</h4>
+                </div>
+                <p class="team-position">EXECUTIVE</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy Logo"></a>
+            </div>
+            <div class="footer-social">
+                <div class="social-group">
+                    <a href="contactus.html" class="join-btn">Join Us</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="mailto:info@onevisionlegacy.com" class="social-link"><i class="fa-regular fa-envelope"></i></a>
+                        <a href="https://maps.google.com/?q=One+Vision+Legacy" target="_blank" class="social-link"><i class="fa-solid fa-location-dot"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-note">Powered by One Vision Legacy © 2026</p>
+        </div>
+    </footer>
+
+<script>
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+    
+    if (mobileMenu.classList.contains('show')) {
+        hamburger.innerHTML = '<i class="fas fa-times"></i>';
+    } else {
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+});
+
+// Slideshow
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+}
+setInterval(nextSlide, 5000);
+
+// More Members Toggle
+function showTeam(sectionId){
+
+    document.querySelectorAll('.team-section-content')
+        .forEach(section=>{
+            section.classList.remove('active');
+        });
+
+    document.querySelectorAll('.team-tab')
+        .forEach(tab=>{
+            tab.classList.remove('active');
+        });
+
+    document.getElementById(sectionId)
+        .classList.add('active');
+
+    event.currentTarget.classList.add('active');
+}
+
+const modal = document.getElementById("directorModal");
+const openBtn = document.getElementById("openDirector");
+const closeBtn = document.querySelector(".close-btn");
+
+openBtn.addEventListener("click", () => {
+    modal.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close bila klik luar
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// PARTNER POPUP
+const partnerModal = document.getElementById("partnerModal");
+const partnerCards = document.querySelectorAll(".openPartner");
+
+const partnerImg = document.getElementById("partnerImg");
+const partnerName = document.getElementById("partnerName");
+const partnerPosition = document.getElementById("partnerPosition");
+const partnerDesc = document.getElementById("partnerDesc");
+const closePartner = document.getElementById("closePartner");
+
+
+partnerCards.forEach(card => {
+    card.addEventListener("click", () => {
+        partnerImg.src = card.dataset.img;
+        partnerName.textContent = card.dataset.name;
+        partnerPosition.textContent = card.dataset.position;
+
+        const text = card.dataset.desc;
+        partnerDesc.innerHTML = text.replace(/\n\n/g, "<br><br>");
+
+        partnerModal.style.display = "flex";
+    });
+});
+
+closePartner.addEventListener("click", () => {
+    partnerModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    if (e.target === partnerModal) {
+        partnerModal.style.display = "none";
+    }
+});
+
+/* Show Team */
+const accordions =
+document.querySelectorAll('.accordion-btn');
+
+accordions.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        const content = button.nextElementSibling;
+
+        if(content.style.display === 'block'){
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
