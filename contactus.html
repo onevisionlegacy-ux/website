@@ -15,13 +15,15 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    font-family: Arial, sans-serif;
+    background:#0d0d0d;
+    color:white;
+    margin:0;
+}
+
+
 
         /* ==================== NAVBAR ==================== */
         .navbar {
@@ -104,6 +106,150 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
+.page-header{
+    padding-top:170px;
+    text-align:center;
+}
+.page-header h1{
+    font-size:4rem;
+    background:linear-gradient(to right,#fff,#4e4343);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    margin-top:1px;
+    color:#fff1f1;
+    font-size:16px;
+}
+
+.contact-wrapper{
+    max-width:600px;
+    margin:80px auto;
+    padding:40px;
+    background:rgba(255,255,255,0.03);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+/* INPUT */
+input, textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.05);
+    color:white;
+    font-size:14px;
+    transition:all 0.3s ease;
+}
+
+/* placeholder color */
+input::placeholder,
+textarea::placeholder{
+    color:#aaa;
+}
+
+/* focus effect */
+input:focus,
+textarea:focus{
+    border-color: var(--primary-red);
+    box-shadow:0 0 10px rgba(255,26,26,0.3);
+}
+
+input {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    border:none;
+    background:linear-gradient(135deg, #ff1a1a, #ff4d4d);
+    color:white;
+    font-weight:600;
+    letter-spacing:0.5px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+
+/* hover button */
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(255,26,26,0.4);
+}
+
+.popup{
+    display:none; /* control hide/show */
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+/* bila aktif */
+.popup.show{
+    display:flex;
+}
+.popup-box{
+    background:#111;
+    color:#fff;
+    padding:35px 30px;
+    border-radius:16px;
+    text-align:center;
+    width:90%;
+    max-width:380px;
+
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 20px 40px rgba(0,0,0,0.6);
+
+    animation:fadeUp 0.35s ease;
+}
+
+.popup-box h2{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    font-size:14px;
+    color:#bbb;
+}
+
+/* button clean */
+.popup-box button{
+    margin-top:18px;
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:var(--primary-red);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(0.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
         /* ==================== FOOTER ==================== */
         .footer {
             margin-top: 80px;
@@ -189,6 +335,13 @@
 </head>
 <body>
 
+<!-- HEADER -->
+<div class="page-header">
+    <h1>Contact us</h1>
+    <p class="subtitle">Go ahead and say just a little more about you. We will reach you soon.</p>
+</div>
+
+
     <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -216,13 +369,39 @@
         </div>
     </nav>
 
-    <!-- BLANK CONTENT AREA -->
-    <div style="height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 80px;">
-        <h2 style="font-size: 2.5rem; text-align: center; color: #aaa;">
-            Blank Page<br>
-            <span style="font-size: 1.1rem; opacity: 0.7;">Ready for new content</span>
-        </h2>
+    
+    <div class="contact-wrapper">
+
+    <!-- FORM -->
+    <form id="contactForm"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSeBA0C7SP_2F8snPqM_ztNdmgBHohboXRUxAUiC1mdIN-KF5A/formResponse"
+    method="POST"
+    target="hidden_iframe">
+
+    <input type="text" name="entry.1103004325" placeholder="Your Name" required>
+
+    <input type="email" name="entry.1206171398" placeholder="Your Email" required>
+
+    <textarea name="entry.474349007" rows="5" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+<!-- HIDDEN IFRAME (NO REDIRECT) -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <div style="font-size:40px; margin-bottom:10px;">✔</div>
+        <h2>Message Sent</h2>
+        <p>We will contact you shortly.</p>
+        <button onclick="closePopup()">Close</button>
     </div>
+</div>
+
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -271,5 +450,22 @@
                 });
             }
         });
+
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function() {
+    setTimeout(() => {
+        document.getElementById("popup").style.display = "flex";
+        form.reset();
+    }, 500); // delay sikit bagi form submit dulu
+});
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+setTimeout(() => {
+    document.getElementById("popup").style.display = "none";
+}, 3000);
     </script>
 </body>

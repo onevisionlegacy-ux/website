@@ -461,7 +461,7 @@ body {
 /* PARTNER CARDS */
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));;
     gap: 40px;
     max-width: 1100px;
     margin: 60px auto 0;
@@ -482,75 +482,77 @@ body {
     object-position: center 20%;
     transition: transform 0.4s ease;
     border-radius: 50px;
-                                                                    filter: drop-shadow(0 0 0 white) 
-                                                                                drop-shadow(0 0 0 white)
-                                                                                            drop-shadow(0 0 0 white);
-                                                                                            }
+    filter: drop-shadow(0 0 0 white) 
+    drop-shadow(0 0 0 white)
+    drop-shadow(0 0 0 white);
+}
 
-                                                                                            .partner-card:hover img {
-                                                                                                transform: scale(1.05);
-                                                                                                }
+.partner-card:hover img {
+    transform: scale(1.05);
+}
 
-                                                                                                .partner-card {
-                                                                                                    cursor: pointer;
-                                                                                                    }
-                                                                                                    /* Text Overlay - Bottom Right */
-                                                                                                    .partner-info {
-                                                                                                        position: absolute;
-                                                                                                            right: 10px;
-                                                                                                                text-align: right;
-                                                                                                                    z-index: 2;
-                                                                                                                    }
+.partner-card {
+    cursor: pointer;
+}
 
-                                                                                                                    .partner-name-block {
-                                                                                                                        background: linear-gradient(to right, 
-                                                                                                                                rgba(255, 26, 26, 0.0000000000000000000000000001), 
-                                                                                                                                        rgba(255, 26, 26, 0.98));
-                                                                                                                                            padding: 6px 2px 10px 50px;
-                                                                                                                                                display: inline-block;
-                                                                                                                                                    margin-bottom: 8px;
-                                                                                                                                                        white-space: nowrap;
-                                                                                                                                                            position: absolute;
-                                                                                                                                                                bottom: 30px;
-                                                                                                                                                                    right: -10px;
-                                                                                                                                                                        text-align: right;
-                                                                                                                                                                            z-index: 2;
-                                                                                                                                                                            }
+/* Text Overlay - Bottom Right */
+.partner-info {
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    z-index: 2;
+}
 
-                                                                                                                                                                            .partner-name-block h4 {
-                                                                                                                                                                                color: white;
-                                                                                                                                                                                    font-size: 1.7rem;
-                                                                                                                                                                                        font-weight: 700;
-                                                                                                                                                                                            letter-spacing: 2.5px;
-                                                                                                                                                                                                margin: 0;
-                                                                                                                                                                                                    line-height: 0.7;
-                                                                                                                                                                                                    }
+.partner-name-block {
+    background: linear-gradient(to right, rgba(255, 26, 26, 0.0000000000000000000000000001), 
+    rgba(255, 26, 26, 0.98));
+    padding: 6px 2px 10px 50px;
+    display: inline-block;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 30px;
+    right: -10px;
+    text-align: right;
+    z-index: 2;
+}
 
-                                                                                                                                                                                                    .partner-position {
-                                                                                                                                                                                                        color: rgb(228, 21, 21);
-                                                                                                                                                                                                            font-size: 1.2rem;
-                                                                                                                                                                                                                font-weight: 900;
-                                                                                                                                                                                                                    letter-spacing: 1px;
-                                                                                                                                                                                                                        white-space: nowrap;
+.partner-name-block h4 {
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin: 0;
+    line-height: 0.7;
+}
 
-                                                                                                                                                                                                                            display: block; /* penting */
-                                                                                                                                                                                                                                transform: translateY(-11px); /* naikkan sini */
-                                                                                                                                                                                                                                }
+.partner-position {
+    color: rgb(228, 21, 21);
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    display: block; /* penting */
+    transform: translateY(-11px); /* naikkan sini */
+}
 
-                                                                                                                                                                                                                                .red-bg-partner {
-                                                                                                                                                                                                                                    position: absolute;  /* ikut card */
-                                                                                                                                                                                                                                        top: 48%;
-                                                                                                                                                                                                                                            left: 38%;
-                                                                                                                                                                                                                                                transform: translate(-50%, -50%);
-                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                        width: 100px;
-                                                                                                                                                                                                                                                            height: 270px;
-                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                    background: rgba(255, 0, 0, 0.436);
-                                                                                                                                                                                                                                                                         border-radius: 120px 120px 0 0; 
-                                                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                                                                 z-index: -1;
-                                                                                                                                                                                                                                                                                 }
+.red-bg-partner {
+    position: absolute;  /* ikut card */
+    top: 48%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 270px;
+    background: rgba(255, 0, 0, 0.436);
+    border-radius: 120px 120px 0 0; 
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: 1fr; /* 🔥 paksa jadi 1 */
+    }
+}
 
 /* Team Card Design */
 
@@ -610,9 +612,11 @@ body {
 .team-position {
     color: rgb(228, 21, 21);
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 900;
     letter-spacing: 1px;
     white-space: nowrap;
+    display: block; /* penting */
+    transform: translateY(-11px); /* naikkan sini */
 }
 
 /* 4x4 Responsive Grid */
@@ -1093,7 +1097,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AISYAH</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1106,7 +1110,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ALYSHA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1119,7 +1123,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AINWAHIDDA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1132,7 +1136,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ADILA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1145,7 +1149,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>LUQMAN</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1170,7 +1174,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>IZZAT</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1183,7 +1187,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ILMIRA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1196,7 +1200,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ALYA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1209,7 +1213,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>HASAN</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1222,7 +1226,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>IKMAL</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1235,7 +1239,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AKMA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1248,7 +1252,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AMIERAH</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1271,7 +1275,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ATIQ</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1284,7 +1288,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>FAKHRUL</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1297,7 +1301,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ZULAIKHA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1310,7 +1314,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>NUZUL</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1323,7 +1327,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>KHALEED</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1336,7 +1340,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>SYAHMI</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1349,7 +1353,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>HAZIQ</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1362,7 +1366,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AIN</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1375,7 +1379,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AFIFI</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1398,7 +1402,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>AMIRAH</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1411,7 +1415,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>NAJIHAH</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 
@@ -1424,7 +1428,7 @@ Sekian, terima kasih.">
                 <div class="team-name-block">
                     <h4>ALEEYA</h4>
                 </div>
-                <p class="team-position">Agency Executive</p>
+                <p class="team-position">EXECUTIVE</p>
             </div>
         </div>
 

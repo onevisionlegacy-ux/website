@@ -266,6 +266,124 @@
     }
 }
 
+/* ====================== */
+
+.briefing-section{
+    width:90%;
+    margin:80px auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:40px;
+    font-weight:700;
+    color:#d62828;
+}
+
+.section-title p{
+    color:#666;
+    margin-top:10px;
+}
+
+.briefing-slider{
+    position:relative;
+}
+
+.briefing-wrapper{
+    overflow:hidden;
+}
+
+.briefing-track{
+    display:flex;
+    transition:.6s ease;
+}
+
+.briefing-card{
+    flex:0 0 calc(100% / 3);
+    padding:10px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+.briefing-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:18px;
+    display:block;
+}
+
+.briefing-overlay{
+    position:absolute;
+    left:10px;
+    right:10px;
+    bottom:10px;
+    border-radius:0 0 18px 18px;
+    padding:20px;
+}
+
+
+/* Button */
+
+.briefing-prev,
+.briefing-next{
+
+    position:absolute;
+    top:45%;
+    transform:translateY(-50%);
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:25px;
+    background:white;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    z-index:99;
+}
+
+.briefing-prev{
+    left:-25px;
+}
+
+.briefing-next{
+    right:-25px;
+}
+
+.briefing-prev:hover,
+.briefing-next:hover{
+    background:#d62828;
+    color:white;
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+.briefing-card{
+    flex:0 0 50%;
+}
+
+}
+
+/* Phone */
+
+@media(max-width:600px){
+
+.briefing-card{
+    flex:0 0 100%;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+}
+
     </style>
 </head>
 <body>
@@ -350,6 +468,87 @@
 
 </section>
 
+<!-- ================= TAKLIMAT SECTION ================= -->
+<section class="briefing-section">
+
+    <div class="section-title">
+        <h2>Talks & Briefing Sessions</h2>
+        <p>We have conducted talks and awareness programmes across various organisations.</p>
+    </div>
+
+    <div class="briefing-slider">
+
+        <button class="briefing-prev">&#10094;</button>
+
+        <div class="briefing-wrapper">
+
+            <div class="briefing-track">
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/1.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/2.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/3.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/4.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/5.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/6.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/7.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/8.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+                <div class="briefing-card">
+                    <img src="TAKLIMAT/9.jpg" alt="">
+                    <div class="briefing-overlay">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="briefing-next">&#10095;</button>
+
+    </div>
+
+</section>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
@@ -397,5 +596,85 @@
                 });
             }
         });
+
+        const track = document.querySelector(".briefing-track");
+const cards = document.querySelectorAll(".briefing-card");
+
+const next = document.querySelector(".briefing-next");
+const prev = document.querySelector(".briefing-prev");
+
+let index = 0;
+
+function visibleCards(){
+
+    if(window.innerWidth <=600){
+        return 1;
+    }
+
+    if(window.innerWidth <=992){
+        return 2;
+    }
+
+    return 3;
+
+}
+
+function updateSlider(){
+
+    const cardWidth = cards[0].offsetWidth;
+
+    track.style.transform =
+        `translateX(-${index * cardWidth}px)`;
+
+}
+
+next.onclick = ()=>{
+
+    let max = cards.length - visibleCards();
+
+    if(index < max){
+        index++;
+    }else{
+        index = 0;
+    }
+
+    updateSlider();
+
+}
+
+prev.onclick = ()=>{
+
+    let max = cards.length - visibleCards();
+
+    if(index >0){
+        index--;
+    }else{
+        index = max;
+    }
+
+    updateSlider();
+
+}
+
+window.addEventListener("resize",updateSlider);
+
+updateSlider();
+
+/* Auto Slide */
+
+setInterval(()=>{
+
+    let max = cards.length - visibleCards();
+
+    if(index < max){
+        index++;
+    }else{
+        index = 0;
+    }
+
+    updateSlider();
+
+},3500);
+
     </script>
 </body>

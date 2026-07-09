@@ -174,7 +174,7 @@
             font-size: 15.5px;
             line-height: 1.7;
             margin-bottom: 25px;
-            color: #ddd;
+            color: #fcfcfc;
         }
 
         .btn {
@@ -378,13 +378,12 @@
 
 .swipe-hint {
     text-align: center;
-    margin-top: 20px;
     color: #aaa;
 }
 
         /* TESTIMONIALS*/
         .testimonials-wrap {
-            margin-top: 30px;
+            margin-top: 10px;
             overflow: hidden;
             position: relative;
         }
@@ -625,7 +624,8 @@ play-btn:hover {
        style="background-image: url('ESTATE\ MANAGEMENT.jpg');">
         <span>Estate Management</span>
     </a>
-
+</div>
+</section>
 
 <section class="achievements">
      <div class="achievements-title">
@@ -640,10 +640,6 @@ play-btn:hover {
 
         <div class="achievement-card" id="card1">
             <img src="ACHIEVEMENT/achievement2.jpg">
-        </div>
-
-        <div class="achievement-card" id="card2">
-            <img src="ACHIEVEMENT/achievement3.jpg">
         </div>
 
         <div class="achievement-card" id="card0">
@@ -664,8 +660,6 @@ play-btn:hover {
 
     </div>
 
-    <p class="swipe-hint">Swipe / Click arrow</p>
-
 </section>
 
     <!-- TESTIMONIALS & FOOTER (Unchanged) -->
@@ -673,38 +667,38 @@ play-btn:hover {
         <h2 style="margin-bottom: 35px;"> TESTIMONIALS</h2>
         <div class="testimonials-wrap">
             <div class="testimonials-track">
-                <!-- Your existing testimonials here -->
+
                 <article class="testimonial">
                     <p class="quote">Alhamdulillah, arwah suami sempat tinggalkan hibah sebagai perlindungan terakhir. Lebih bermakna, saya menerimanya tepat pada tarikh lahir arwah — satu kenangan yang tak ternilai.</p>
                     <img class="proof" src="CLAIM/testimonial1.jpg" alt="Testimonial 1">
-                    <p class="meta"><span class="person">Waris allahyarham Nik Muhammad Hisyam</span><span class="person">7 Mac 2023</span></p>
+                    <p class="meta"><span class="person">Waris allahyarham Nik Muhammad Hisyam</span><br><span class="person"></span>7 Mac 2023</p>
                 </article>
                 <article class="testimonial">
                     <p class="quote">Alhamdulillah, dengan hibah ini saya mampu meneruskan kehidupan dan membesarkan dua amanah anak arwah dengan lebih terjamin.</p>
                     <img class="proof" src="CLAIM/testimonial2.jpg" alt="Testimonial 2">
-                    <p class="meta"><span class="person">Rozita</span><span class="person">5 Mei 2025</span></p>
+                    <p class="meta"><span class="person"> Rozita </span><br><span class="person"></span>5 Mei 2025</p>
                 </article>
                 <article class="testimonial">
                     <p class="quote">Alhamdulillah, hibah banyak membantu melancarkan urusan dan kos pengurusan harta pusaka tanpa membebankan keluarga.</p>
                     <img class="proof" src="CLAIM/testimonial3.jpg" alt="Testimonial 3">
-                    <p class="meta"><span class="person">Says by:</span> Hasrisyah <br><span class="person">Date:</span> 9 July 2024 </p>
+                    <p class="meta"><span class="person"> Hasrisyah </span><br><span class="person"></span>9 July 2024</p>
                 </article>
                 <!-- Duplicates -->
                 <article class="testimonial">
-                    <p class="quote">"Ketika diuji dengan sakit kritikal, pampasan ini sangat membantu meringankan beban kos rawatan dan memberi sedikit kelegaan.</p>
+                    <p class="quote">Ketika diuji dengan sakit kritikal, pampasan ini sangat membantu meringankan beban kos rawatan dan memberi sedikit kelegaan.</p>
                     <img class="proof" src="CLAIM/testimonial4.jpg" alt="">
-                    <p class="meta"><span class="person">Says by:</span> Natrah <br><span class="person">Date:</span> 2 April 2023</p>
+                    <p class="meta"><span class="person"> Natrah </span><br><span class="person"></span> 2 April 2023</p>
                     
                 </article>
                 <article class="testimonial">
                     <p class="quote">Sebagai anak angkat, hibah ini memberi jaminan dan rasa dihargai dalam meneruskan kehidupan.</p>
                     <img class="proof" src="CLAIM/testimonial5.jpg" alt="">
-                    <p class="meta"><span class="person">Says by:</span>Anak angkat allahyarham Zaidin <br><span class="person">Date:</span> 6 June 2024</p>
+                    <p class="meta"><span class="person"> Anak Angkat Allahyarham Zaidin </span><br><span class="person"></span> 6 June 2024</p>
                 </article>
                 <article class="testimonial">
                     <p class="quote">Alhamdulillah, hibah ini membantu saya menyara dua adik-beradik kelainan upaya dengan lebih baik dan teratur</p>
                     <img class="proof" src="CLAIM/testimonial6.jpg" alt="">
-                    <p class="meta"><span class="person"> Waris allahyarham Zaidin </span><span class="person">6 June 2024</span></p>
+                    <p class="meta"><span class="person"> Waris Allahyarham Zaidin </span><br><span class="person"></span>6 June 2024</p>
                 </article>
             </div>
         </div>
@@ -737,11 +731,7 @@ function enableMusic() {
     music.muted = false;
     music.play();
 }
-</script>
-
-    <script>
-
-    
+   
 const music = document.getElementById("bgMusic");
 const button = document.querySelector(".play-btn");
 
@@ -756,12 +746,23 @@ function toggleMusic(event) {
         button.innerHTML = "▶";
     }
 }
-        // Video, Navbar, Hamburger (Unchanged)
         const introWrap = document.getElementById("videoIntro");
         const introVideo = document.getElementById("introVideo");
         function hideIntro() {
-            introWrap.classList.add("hidden");
-        }
+    introWrap.classList.add("hidden");
+
+    // 🔥 AUTO PLAY MUSIC LEPAS INTRO
+    const music = document.getElementById("bgMusic");
+    music.muted = false;
+
+    music.play().catch(() => {
+        console.log("Autoplay blocked");
+    });
+
+    // update button icon
+    const button = document.querySelector(".play-btn");
+    button.innerHTML = "❚❚";
+}
         if (introVideo) {
             introVideo.addEventListener("ended", hideIntro);
             setTimeout(hideIntro, 8500);
