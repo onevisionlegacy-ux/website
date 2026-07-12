@@ -28,15 +28,28 @@
 .hero{
     display:flex;
     align-items:center;
-    justify-content:center;
+    justify-content:space-between;
+    padding:60px 10%;
     gap:50px;
-    padding:80px 10%;
-    flex-wrap:wrap;
+    background:#0d0d0d;
 }
 
-.hero img{
-    width:320px;
-    max-width:100%;
+/* kiri */
+.hero-left{
+    flex:1;
+}
+
+/* kanan */
+.hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+/* gambar */
+.hero-right img{
+    width:100%;
+    max-width:400px;
     border-radius:12px;
 }
 
@@ -45,9 +58,9 @@
 }
 
 .hero-text h1{
-    font-size:36px;
+    font-size:clamp(28px, 4vw, 48px);
     margin-bottom:20px;
-    }
+}
 
 .hero-text p{
     color:#ccc;
@@ -635,6 +648,10 @@ select{
     display: block;     /* bagi dia duduk sendiri satu line */
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
     </style>
 </head>
 <body>
@@ -642,7 +659,6 @@ select{
 <!-- HEADER -->
 <div class="page-header">
     <h1>Career</h1>
-    <p class="subtitle"> We build people with passion</p>
 </div>
 
 
@@ -650,7 +666,7 @@ select{
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="homepage.html"><img src="logo.png" alt="One Vision Legacy"></a>
+                <a href="index.html"><img src="logo.png" alt="One Vision Legacy"></a>
             </div>
             <div class="menu">
                 <a href="aboutus.html">About Us</a>
@@ -674,12 +690,25 @@ select{
     </nav>
 
     
-    
 <!-- HERO -->
 <section class="hero">
-    <img src="career.jpg" alt="Career Image">
+    <div class="hero-left">
+        <h1>Anyone, anywhere, can start with us!</h1>
 
-    <div class="hero-text">
+        <div class="hero-form">
+            <button onclick="scrollToForm()">Join Us</button>
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+        <img src="career.jpg" alt="Career Image">
+    </div>
+
+</section>
+
+<section>
+
     <div class="section-title">
         <h2>Build Your Future With Us</h2>
         <p>
@@ -690,8 +719,8 @@ select{
         that encourages innovation, collaboration, and personal development.
         </p>
     </div>
+    </div>
 </section>
-
 <!-- WHY -->
 <section class="section">
     <div class="section-title">
@@ -796,7 +825,7 @@ select{
 
 <button id="applyBtn">Apply</button>
 
-<div id="formContainer" class="form-container">
+<div id="join-form" class="form-container">
 
 <p class="form-info">
     Please complete the information below.
@@ -896,7 +925,16 @@ select{
     </footer>
 
 <script>
-        // Navbar Scroll Effect
+
+function scrollToForm() {
+    const form = document.getElementById("join-form");
+
+    form.classList.add("show"); // buka form
+    form.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+       // Navbar Scroll Effect
         const navbar = document.getElementById("navbar");
         window.addEventListener("scroll", () => {
             navbar.classList.toggle("scrolled", window.scrollY > 80);
@@ -995,3 +1033,4 @@ function closePopup(){
 
 </script>
 </body>
+</html>
