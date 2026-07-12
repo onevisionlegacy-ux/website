@@ -823,7 +823,7 @@ html{
         </div>
     </div>
 
-<button id="applyBtn">Apply</button>
+<button id="applyBtn" onclick="scrollToForm()">Apply</button>
 
 <div id="join-form" class="form-container">
 
@@ -959,8 +959,6 @@ function scrollToForm() {
             }
         });
 
-const applyBtn = document.getElementById("applyBtn");
-const formContainer = document.getElementById("formContainer");
 const detailsForm = document.getElementById("detailsForm");
 const resumeForm = document.getElementById("resumeForm");
 
@@ -1017,11 +1015,6 @@ document.getElementById("resumeForm").addEventListener("submit", function(e){
     };
 
     reader.readAsDataURL(file);
-});
-
-// bukatutup form
-applyBtn.addEventListener("click", () => {
-    formContainer.classList.toggle("show");
 });
 
 // popup submit
