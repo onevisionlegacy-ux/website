@@ -549,6 +549,23 @@ play-btn:hover {
     transform: translateY(-50%) scale(1.15);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .section {
+        padding: 40px 20px;
+    }
+
+    .hero {
+        padding: 0 20px 60px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -604,6 +621,7 @@ play-btn:hover {
         </div>
     </div>
 
+<div class="container">
     <!-- SERVICES -->
     <div class="service-container">
         
@@ -625,9 +643,12 @@ play-btn:hover {
         <span>Estate Management</span>
     </a>
 </div>
+</div>
 </section>
 
+
 <section class="achievements">
+    <div class="container">
      <div class="achievements-title">
     <h2>ACHIEVEMENTS</h2>
 </div>
@@ -659,11 +680,12 @@ play-btn:hover {
         <div class="swipe-arrow right" onclick="nextSlide()">❯</div>
 
     </div>
-
+    </div>
 </section>
 
     <!-- TESTIMONIALS & FOOTER (Unchanged) -->
     <div class="section" style="padding: 40px 60px 80px;">
+        <div class="container">
         <h2 style="margin-bottom: 35px;"> TESTIMONIALS</h2>
         <div class="testimonials-wrap">
             <div class="testimonials-track">
@@ -701,6 +723,7 @@ play-btn:hover {
                     <p class="meta"><span class="person"> Waris Allahyarham Zaidin </span><br><span class="person"></span>6 June 2024</p>
                 </article>
             </div>
+        </div>
         </div>
     </div>
 
