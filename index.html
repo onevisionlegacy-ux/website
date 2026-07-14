@@ -145,7 +145,7 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .hero {
+        . {
             height: 100vh;
             background: url('introphoto.jpeg') center/cover no-repeat;
             display: flex;
@@ -155,14 +155,14 @@
             margin-top: 80px;
         }
 
-        .hero::after {
+        .::after {
             content: "";
             position: absolute;
             inset: 0;
             background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.5) 40%, transparent 70%);
         }
 
-        .hero-content {
+        .-content {
             position: relative;
             z-index: 2;
             max-width: 520px;
@@ -171,14 +171,14 @@
             margin: 0 auto;
         }
 
-        .hero h1 {
+        . h1 {
             font-size: clamp(2.4rem, 5.5vw, 42px);
             font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.1;
         }
 
-        .hero p {
+        . p {
             font-size: 15.5px;
             line-height: 1.7;
             margin-bottom: 25px;
@@ -528,7 +528,7 @@
         @media (max-width: 868px) {
             .menu { display: none; }
             .hamburger { display: flex; }
-            .hero { padding: 0 30px 70px; }
+            . { padding: 0 30px 70px; }
         }
         
 .play-btn {
@@ -569,7 +569,7 @@ play-btn:hover {
 
         @media (max-width: 600px) {
             .service-card { width: 100%; max-width: 260px; }
-            .hero-content { max-width: 100%; }
+            .-content { max-width: 100%; }
         }
 
     </style>
@@ -618,7 +618,7 @@ play-btn:hover {
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!--  -->
     <div class="hero">
         <div class="hero-content">
             <h1>BUILD YOUR FUTURE WITH US</h1>
@@ -627,30 +627,30 @@ play-btn:hover {
         </div>
     </div>
 
-<div class="container">
-    <!-- SERVICES -->
-    <div class="service-container">
-        
-        <div class="services-title">
-    <h2>SERVICES</h2>
-</div>
-    <a href="services.html" class="service-card"
-       style="background-image: url('TAKAFUL.jpg');">
-        <span>Takaful</span>
-    </a>
+<div class="hero">
+        <div class="hero-content container">
+            <h1>BUILD YOUR FUTURE WITH US</h1>
+            <p>Join a growing business community focused on leadership, opportunity and financial success.</p>
+            <button class="btn" onclick="window.location.href='aboutus.html'">Learn More</button>
+        </div>
+    </div>
 
-    <a href="services.html" class="service-card"
-       style="background-image: url('INVESTMENT.jpg');">
-        <span>Investment</span>
-    </a>
-
-    <a href="services.html" class="service-card"
-       style="background-image: url('ESTATE MANAGEMENT.jpg');">
-        <span>Estate Management</span>
-    </a>
-</div>
-</div>
-</section>
+    <div class="container">
+        <!-- SERVICES -->
+        <div class="service-container">
+            <div style="width:100%; text-align:center; margin-bottom:40px;">
+                <h2 style="font-size:40px; font-weight:800; letter-spacing:2px;">SERVICES</h2>
+            </div>
+            <a href="services.html" class="service-card" style="background-image: url('TAKAFUL.jpg');">
+                <span>Takaful</span>
+            </a>
+            <a href="services.html" class="service-card" style="background-image: url('INVESTMENT.jpg');">
+                <span>Investment</span>
+            </a>
+            <a href="services.html" class="service-card" style="background-image: url('ESTATE MANAGEMENT.jpg');">
+                <span>Estate Management</span>
+            </a>
+        </div>
 
 
 <section class="achievements">
@@ -687,7 +687,6 @@ play-btn:hover {
 
     </div>
     </div>
-</section>
 
     <!-- TESTIMONIALS & FOOTER (Unchanged) -->
     <div class="section" style="padding: 40px 60px 80px;">
@@ -732,6 +731,7 @@ play-btn:hover {
         </div>
         </div>
     </div>
+    
 
     <footer class="footer">
         <div class="footer-inner">
