@@ -167,6 +167,8 @@
             z-index: 2;
             max-width: 520px;
             width: 100%;
+            text-align: center;       
+            margin: 0 auto;
         }
 
         .hero h1 {
@@ -527,8 +529,6 @@
             .menu { display: none; }
             .hamburger { display: flex; }
             .hero { padding: 0 30px 70px; }
-            .section { padding: 60px 20px; }
-            .swipe-arrow { width: 48px; height: 48px; font-size: 1.7rem; }
         }
         
 .play-btn {
@@ -566,15 +566,11 @@ play-btn:hover {
     padding: 0 20px;
     width: 100%;
 }
-@media (max-width: 768px) {
-    .section {
-        padding: 40px 20px;
-    }
 
-    .hero {
-        padding: 0 20px 60px;
-    }
-}
+        @media (max-width: 600px) {
+            .service-card { width: 100%; max-width: 260px; }
+            .hero-content { max-width: 100%; }
+        }
 
     </style>
 </head>
